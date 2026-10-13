@@ -82,6 +82,6 @@ Quedan disponibles más pesos en los archivos originales si hacen falta.
 - Se quitó el halo alrededor del ojo del hero, y los ojitos pequeños se cambiaron por puntos.
 - "Quién te atiende" pasó a ser **"Sobre mí"**, en primera persona.
 - Consulta integral sin refracción, con fondo de ojo y análisis de película lagrimal.
-- Sección **Convenios**: convenio con JATCO (botón que preselecciona el convenio en la agenda) y una oferta de convenios para otras empresas. **Pendiente:** definir los beneficios concretos del convenio para mencionarlos.
+- Sección **Convenios**: convenio con JATCO (botón que preselecciona el convenio en la agenda) y una oferta de convenios para otras empresas. Precio con convenio JATCO: **$650 MXN por consulta**.
 - **Agenda en línea** con el mismo sistema del psicólogo (ver README). **Pendiente:** publicar el Apps Script propio de Opal Eye y pegar su URL.
 - Tipografías de la marca: Marlin, Asen Pro y Mosafin.

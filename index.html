@@ -219,7 +219,10 @@
   .deal-main{position:relative;background:var(--navy);color:#fff;border:2px solid transparent;background:linear-gradient(var(--navy),var(--navy)) padding-box,var(--opal-lin) border-box;overflow:hidden}
   .deal-main p{color:rgba(238,245,245,.78)}
   .deal-main .eyebrow{color:var(--o-aqua)}
-  .deal-name{font:400 17px/1 var(--display);letter-spacing:.3em;color:#fff;padding:9px 14px;border:1.5px solid rgba(255,255,255,.35);border-radius:10px;align-self:flex-start}
+  .deal-name{font:600 15px/1 var(--label);letter-spacing:.3em;color:#fff;padding:9px 14px;border:1.5px solid rgba(255,255,255,.35);border-radius:10px;align-self:flex-start}
+  .deal-price{display:flex;align-items:center;gap:16px;padding:16px 0 4px}
+  .deal-price b{font:400 64px/1 var(--display);background:var(--opal-lin);-webkit-background-clip:text;background-clip:text;color:transparent;filter:hue-rotate(var(--hue))}
+  .deal-price span{font-family:var(--label);font-size:13px;font-weight:600;letter-spacing:.06em;line-height:1.4;color:rgba(238,245,245,.8)}
   .deal-alt{background:var(--surface);border:1px solid var(--line)}
   .deal-alt p{color:var(--ink-soft)}
 
@@ -500,7 +503,8 @@
         <article class="deal deal-main reveal">
           <span class="deal-name">JATCO</span>
           <h3>¿Trabajas en <em class="opal-text">JATCO?</em></h3>
-          <p>Opal Eye tiene convenio con JATCO. Al agendar, indica que vienes por el convenio y te explicamos los beneficios en tu consulta.</p>
+          <p>Opal Eye tiene convenio con JATCO. Si trabajas ahí, tu consulta tiene precio preferencial. Al agendar, indica que vienes por el convenio.</p>
+          <div class="deal-price"><b>$650</b><span>MXN por consulta<br>con convenio JATCO</span></div>
           <div class="hero-actions">
             <a class="btn btn-opal" href="#agenda" data-convenio="JATCO">Agendar con convenio</a>
             <a class="btn btn-line" href="https://wa.me/524499997719?text=Hola%2C%20trabajo%20en%20JATCO%20y%20quiero%20informaci%C3%B3n%20del%20convenio%20con%20Opal%20Eye" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
