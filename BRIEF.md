@@ -77,7 +77,7 @@ Quedan disponibles más pesos en los archivos originales si hacen falta.
 
 ## 5. Cambios de la ronda 2 (indicaciones del cliente)
 - Horario 10:00–20:00 y correo opal.eye.oftalmo@gmail.com.
-- Titular nuevo: "Tu mirada, en las mejores manos." Alternativas en la lluvia de ideas del chat.
+- Titular: "Tu visión merece una mirada experta." Sección de señales: "Lo que no duele también importa."
 - Se quitó el halo alrededor del ojo del hero, y los ojitos pequeños se cambiaron por puntos.
 - "Quién te atiende" pasó a ser **"Sobre mí"**, en primera persona.
 - Consulta integral sin refracción, con fondo de ojo y análisis de película lagrimal.
