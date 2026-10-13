@@ -211,20 +211,27 @@
 
 
   /* convenios */
-  .deals{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
-  .deal{border-radius:var(--radius);padding:38px 34px;display:flex;flex-direction:column;gap:14px}
-  .deal h3{font-size:clamp(24px,2.6vw,30px)}
-  .deal p{margin:0}
-  .deal .hero-actions{margin-top:auto;padding-top:12px}
-  .deal-main{position:relative;background:var(--navy);color:#fff;border:2px solid transparent;background:linear-gradient(var(--navy),var(--navy)) padding-box,var(--opal-lin) border-box;overflow:hidden}
-  .deal-main p{color:rgba(238,245,245,.78)}
-  .deal-main .eyebrow{color:var(--o-aqua)}
-  .deal-name{font:600 15px/1 var(--label);letter-spacing:.3em;color:#fff;padding:9px 14px;border:1.5px solid rgba(255,255,255,.35);border-radius:10px;align-self:flex-start}
-  .deal-price{display:flex;align-items:center;gap:16px;padding:16px 0 4px}
-  .deal-price b{font:400 64px/1 var(--display);background:var(--opal-lin);-webkit-background-clip:text;background-clip:text;color:transparent;filter:hue-rotate(var(--hue))}
-  .deal-price span{font-family:var(--label);font-size:13px;font-weight:600;letter-spacing:.06em;line-height:1.4;color:rgba(238,245,245,.8)}
-  .deal-alt{background:var(--surface);border:1px solid var(--line)}
-  .deal-alt p{color:var(--ink-soft)}
+  .deals{display:grid;gap:18px}
+  .deal-main{display:grid;grid-template-columns:1.45fr 1fr;background:var(--navy);color:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(84,165,164,.35);box-shadow:var(--shadow)}
+  .deal-info{padding:44px 40px;display:flex;flex-direction:column;gap:16px}
+  .deal-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .deal-tag{display:inline-flex;align-items:center;gap:8px;font:600 11.5px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--o-aqua)}
+  .deal-tag .dot{width:7px;height:7px;border-radius:50%;background:#5FD3A0;box-shadow:0 0 0 4px rgba(95,211,160,.18)}
+  .deal-name{font:600 14px/1 var(--label);letter-spacing:.3em;color:#fff;padding:8px 12px;border:1px solid rgba(255,255,255,.3);border-radius:8px}
+  .deal-info h3{font-size:clamp(24px,2.6vw,32px)}
+  .deal-info p{margin:0;max-width:54ch;color:rgba(238,245,245,.78)}
+  .deal-steps{list-style:none;margin:8px 0 0;padding:22px 0 0;border-top:1px solid var(--line-night);display:grid;gap:12px}
+  .deal-steps li{display:flex;gap:16px;align-items:baseline;font-size:15.5px;color:rgba(238,245,245,.9)}
+  .deal-steps b{flex:none;min-width:24px;font-variant-numeric:tabular-nums;font:600 13px/1 var(--label);letter-spacing:.08em;color:var(--o-aqua)}
+  .deal-rate{background:var(--navy-2);border-left:1px solid var(--line-night);padding:44px 36px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .rate-label{font:600 11.5px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--o-aqua)}
+  .rate-num{font:400 76px/1 var(--display);letter-spacing:.02em;color:#fff}
+  .rate-num small{font:600 16px/1 var(--label);letter-spacing:.12em;color:rgba(238,245,245,.7);margin-left:8px}
+  .rate-desc{font-size:15px;color:rgba(238,245,245,.72);margin:0 0 18px}
+  .deal-rate .btn{width:100%}
+  .deal-alt{display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 34px}
+  .deal-alt h3{font-size:21px;margin-bottom:6px}
+  .deal-alt p{margin:0;max-width:62ch;color:var(--ink-soft)}
 
   /* agenda en línea */
   .agenda-sec{background:var(--teal-soft)}
@@ -290,7 +297,8 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:980px){
-    .hero-grid,.manifesto-grid,.when-grid,.doc,.visit,.deals,.agenda{grid-template-columns:1fr}
+    .hero-grid,.manifesto-grid,.when-grid,.doc,.visit,.deal-main,.agenda{grid-template-columns:1fr}
+    .deal-rate{border-left:0;border-top:1px solid var(--line-night)}
     .hero{padding:118px 0 80px}
     .eye-stage{width:min(80vw,380px);aspect-ratio:auto;order:-1;margin:0 auto 34px}
     .services,.quotes{grid-template-columns:1fr}
@@ -313,7 +321,9 @@
     section{padding:76px 0}
     .steps{grid-template-columns:1fr}
     .card,.booking{padding:26px 20px}
-    .deal{padding:30px 22px}
+    .deal-info,.deal-rate{padding:32px 22px}
+    .deal-alt{padding:24px 22px}
+    .rate-num{font-size:64px}
     .service{grid-template-columns:1fr;padding:26px 22px}
     .hero-actions .btn{flex:1 1 100%}
     .brand .logo{height:40px}
@@ -489,27 +499,38 @@
   <section id="convenios" style="padding-top:0" aria-labelledby="conv-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Convenios</span>
-        <h2 id="conv-title">Cuidar la vista <em>también es trabajo en equipo.</em></h2>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Convenios empresariales</span>
+        <h2 id="conv-title">Salud visual <em>para tu equipo de trabajo.</em></h2>
       </div>
       <div class="deals">
-        <article class="deal deal-main reveal">
-          <span class="deal-name">JATCO</span>
-          <h3>¿Trabajas en <em class="opal-text">JATCO?</em></h3>
-          <p>Opal Eye tiene convenio con JATCO. Si trabajas ahí, tu consulta tiene precio preferencial. Al agendar, indica que vienes por el convenio.</p>
-          <div class="deal-price"><b>$650</b><span>MXN por consulta<br>con convenio JATCO</span></div>
-          <div class="hero-actions">
+        <article class="deal-main reveal" aria-labelledby="jatco-title">
+          <div class="deal-info">
+            <div class="deal-top">
+              <span class="deal-tag"><span class="dot" aria-hidden="true"></span>Convenio vigente</span>
+              <span class="deal-name">JATCO</span>
+            </div>
+            <h3 id="jatco-title">Convenio empresarial JATCO</h3>
+            <p>Los colaboradores de JATCO cuentan con tarifa preferencial en su consulta con la Dra. Paola Hernández Romo, cirujano oftalmólogo certificada por el Consejo Mexicano de Oftalmología.</p>
+            <ol class="deal-steps">
+              <li><b>01</b>Agenda tu cita en línea o por WhatsApp.</li>
+              <li><b>02</b>Selecciona “Convenio JATCO” al agendar.</li>
+              <li><b>03</b>Menciona tu convenio el día de tu consulta.</li>
+            </ol>
+          </div>
+          <aside class="deal-rate" aria-label="Tarifa con convenio JATCO">
+            <span class="rate-label">Tarifa preferencial</span>
+            <b class="rate-num">$650<small>MXN</small></b>
+            <p class="rate-desc">por consulta oftalmológica</p>
             <a class="btn btn-opal" href="#agenda" data-convenio="JATCO">Agendar con convenio</a>
-            <a class="btn btn-line" href="https://wa.me/524499997719?text=Hola%2C%20trabajo%20en%20JATCO%20y%20quiero%20informaci%C3%B3n%20del%20convenio%20con%20Opal%20Eye" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
-          </div>
+            <a class="btn btn-line" href="https://wa.me/524499997719?text=Hola%2C%20soy%20colaborador%20de%20JATCO%20y%20quiero%20informaci%C3%B3n%20del%20convenio%20con%20Opal%20Eye" target="_blank" rel="noopener">Solicitar información</a>
+          </aside>
         </article>
-        <article class="deal deal-alt reveal">
-          <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Para empresas</span>
-          <h3>¿Quieres un convenio para tu empresa?</h3>
-          <p>Llevamos el cuidado de la vista a tu equipo de trabajo. Escríbenos y armamos un convenio a la medida de tu empresa.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/524499997719?text=Hola%2C%20me%20interesa%20un%20convenio%20de%20Opal%20Eye%20para%20mi%20empresa" target="_blank" rel="noopener">Solicitar convenio</a>
+        <article class="deal-alt reveal">
+          <div>
+            <h3>Convenios para empresas</h3>
+            <p>¿Tu empresa busca ofrecer un beneficio de salud visual a sus colaboradores? Diseñamos convenios corporativos a la medida.</p>
           </div>
+          <a class="btn btn-primary" href="https://wa.me/524499997719?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20convenios%20corporativos%20con%20Opal%20Eye" target="_blank" rel="noopener">Solicitar información</a>
         </article>
       </div>
     </div>
