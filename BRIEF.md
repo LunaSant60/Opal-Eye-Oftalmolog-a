@@ -11,7 +11,7 @@
 | Dirección | Plaza La Cantera, Blvd. Juan Pablo II 1098, Local 12, Canteras de San Agustín, 20218 Aguascalientes, Ags. | Google Maps |
 | Horario | **Lunes a viernes 10:00–20:00** · Sábado y domingo cerrado | Cliente (Google Maps aún dice 9:00; conviene actualizarlo) |
 | Teléfono / WhatsApp | 449 999 7719 (+52 449 999 7719) | Google Maps y widget de WhatsApp de su sitio |
-| Correo | **opal.eye.oftalmo@gmail.com** | Cliente |
+| Correo | **opal.eye.oftalmologia@gmail.com** | Cliente |
 | Calificación | **5.0 ★ con 13 reseñas** | Google Maps |
 | Distintivo | Negocio dirigido por mujeres | Google Maps |
 | Redes | Instagram [@opal.eye.ofta](https://www.instagram.com/opal.eye.ofta/) · Facebook [Opal.Eye.Ofta](https://www.facebook.com/Opal.Eye.Ofta/) | Su sitio |
@@ -76,7 +76,7 @@ Quedan disponibles más pesos en los archivos originales si hacen falta.
 - [ ] Dominio: publicar en opaleyeoftalmo.com
 
 ## 5. Cambios de la ronda 2 (indicaciones del cliente)
-- Horario 10:00–20:00 y correo opal.eye.oftalmo@gmail.com.
+- Horario 10:00–20:00 y correo opal.eye.oftalmologia@gmail.com.
 - Titular: "Tu visión merece una mirada experta." Sección de señales: "Lo que no duele también importa."
 - Se quitó el halo alrededor del ojo del hero, y los ojitos pequeños se cambiaron por puntos.
 - "Quién te atiende" pasó a ser **"Sobre mí"**, en primera persona.

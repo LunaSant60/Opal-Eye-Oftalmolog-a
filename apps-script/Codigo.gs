@@ -28,7 +28,7 @@ var CONFIG = {
     5: [['10:00', '20:00']]
   },
   SCHEDULE_LINES: ['Lunes a viernes · 10:00 am a 8:00 pm'],
-  NOTIFY_EMAIL: 'opal.eye.oftalmo@gmail.com', // aviso por correo de cada cita nueva ('' para desactivar)
+  NOTIFY_EMAIL: 'opal.eye.oftalmologia@gmail.com', // aviso por correo de cada cita nueva ('' para desactivar)
   EVENT_COLOR: CalendarApp.EventColor.CYAN
 };
 

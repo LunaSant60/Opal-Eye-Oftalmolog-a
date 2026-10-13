@@ -31,7 +31,7 @@ Si alguien viene por convenio, se manda dentro de `reason`, por ejemplo `"Consul
 **Importante:** Opal Eye usa **su propio script**, en `apps-script/Codigo.gs`, conectado a **su Google Calendar**. No uses la URL del psicólogo, porque las citas caerían en su agenda.
 
 ### Conectarla a Google Calendar (unos 10 minutos)
-1. Entra a https://script.google.com con la **cuenta de Google donde la doctora quiere ver sus citas** (por ejemplo opal.eye.oftalmo@gmail.com) y crea un **Proyecto nuevo**.
+1. Entra a https://script.google.com con la **cuenta de Google donde la doctora quiere ver sus citas** (por ejemplo opal.eye.oftalmologia@gmail.com) y crea un **Proyecto nuevo**.
 2. Borra lo que trae el archivo `Código.gs` y pega todo el contenido de `apps-script/Codigo.gs`.
 3. Revisa `CONFIG` al inicio del archivo:
    - `DURATION_MIN`: cuánto dura cada consulta. Viene en 30 minutos; **confírmalo con la doctora**.
