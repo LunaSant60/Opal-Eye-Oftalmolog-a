@@ -140,8 +140,8 @@
   .value p{margin:0;color:var(--ink-soft);font-size:16px}
 
   /* servicios */
-  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .service{position:relative;display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:transform .3s,box-shadow .3s,border-color .3s;overflow:hidden}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .service{position:relative;display:grid;grid-template-columns:1fr;align-content:start;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;transition:transform .3s,box-shadow .3s,border-color .3s;overflow:hidden}
   .service::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--opal-lin);transform:scaleX(0);transform-origin:left;transition:transform .45s;filter:hue-rotate(var(--hue))}
   .service:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
   .service:hover::after{transform:scaleX(1)}
@@ -440,13 +440,6 @@
             <h3>Consulta oftalmológica integral</h3>
             <p>Evaluación completa para detectar y tratar cualquier alteración de tus ojos.</p>
             <div class="tags"><span>Agudeza visual</span><span>Presión intraocular</span><span>Fondo de ojo</span><span>Análisis de película lagrimal</span><span>Revisión detallada</span></div>
-          </div>
-        </article>
-        <article class="service reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="2.5"/></svg></div>
-          <div>
-            <h3>Estudios y diagnóstico especializado</h3>
-            <p>Valoraciones complementarias cuando tu caso necesita un análisis más profundo, para identificar enfermedades oculares con precisión.</p>
           </div>
         </article>
         <article class="service reveal">

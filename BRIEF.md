@@ -20,9 +20,8 @@
 
 ### Servicios (los mismos de su sitio)
 1. **Consulta oftalmológica integral**: agudeza visual, presión intraocular, fondo de ojo, análisis de película lagrimal y revisión detallada. Refracción no se incluye (indicación del cliente).
-2. **Estudios y diagnóstico especializado**: valoraciones complementarias.
-3. **Cirugías oftalmológicas**: con seguimiento antes y después. Una reseña menciona una cirugía de cataratas.
-4. **Tratamientos con láser.**
+2. **Cirugías oftalmológicas**: con seguimiento antes y después. Una reseña menciona una cirugía de cataratas.
+3. **Tratamientos con láser.**
 
 ### Reseñas visibles en Google (textuales)
 - "La doctora es muy atenta y explica muy bien, atendió a mi abuelo por cataratas, ahora ya puede ver bien."
