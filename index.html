@@ -9,10 +9,17 @@
 <meta property="og:description" content="Cuidamos tu visión con precisión y cercanía. Aguascalientes.">
 <meta name="theme-color" content="#0E212F">
 <link rel="icon" type="image/svg+xml" href="logo-mark.svg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+<link rel="preload" href="fonts/marlin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/asen-pro-400.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  /* tipografías de la marca: Marlin (títulos, la del logo), Asen Pro (texto), Mosafin (etiquetas y números) */
+  @font-face{font-family:"Marlin";src:url("fonts/marlin.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Asen Pro";src:url("fonts/asen-pro-300.woff2") format("woff2");font-weight:300;font-display:swap}
+  @font-face{font-family:"Asen Pro";src:url("fonts/asen-pro-400.woff2") format("woff2");font-weight:400;font-display:swap}
+  @font-face{font-family:"Asen Pro";src:url("fonts/asen-pro-400-italic.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+  @font-face{font-family:"Asen Pro";src:url("fonts/asen-pro-600.woff2") format("woff2");font-weight:600;font-display:swap}
+  @font-face{font-family:"Mosafin";src:url("fonts/mosafin-500.woff2") format("woff2");font-weight:500;font-display:swap}
+  @font-face{font-family:"Mosafin";src:url("fonts/mosafin-600.woff2") format("woff2");font-weight:600;font-display:swap}
   :root{
     color-scheme:light;
     /* marca (tomados de su logo) */
@@ -38,8 +45,9 @@
     --radius:22px;
     --opal:conic-gradient(from 210deg,var(--teal),var(--o-aqua),var(--o-sky),var(--o-lilac),var(--o-peach),var(--o-mint),var(--teal));
     --opal-lin:linear-gradient(110deg,var(--o-aqua),var(--o-sky) 28%,var(--o-lilac) 52%,var(--o-peach) 76%,var(--o-mint));
-    --serif:"Instrument Serif",Georgia,serif;
-    --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --display:"Marlin","Asen Pro",system-ui,sans-serif;
+    --sans:"Asen Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --label:"Mosafin","Asen Pro",system-ui,sans-serif;
     --hue:0deg;
   }
   *,*::before,*::after{box-sizing:border-box}
@@ -50,15 +58,20 @@
   :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
   .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.05;letter-spacing:-0.01em;margin:0}
-  h1 em,h2 em,h3 em{font-style:italic}
+  h1,h2,h3{margin:0}
+  h1,h2{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:.02em;text-transform:uppercase}
+  h3{font-family:var(--sans);font-weight:600;line-height:1.2}
+  h1 em,h2 em,h3 em{font-style:normal}
+  h2 em{color:var(--teal-strong)}
+  .night h2 em{color:var(--o-aqua)}
+  .manifesto .opal-text{background:linear-gradient(110deg,#2F7473,#3A8FA3 40%,#7468C2 72%,#B9785E)!important;-webkit-background-clip:text!important;background-clip:text!important}
   .opal-text{background:var(--opal-lin);-webkit-background-clip:text;background-clip:text;color:transparent;filter:hue-rotate(var(--hue))}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-strong)}
-  .eyebrow svg{width:30px;height:16px;color:currentColor}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--label);font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-strong)}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
   .night .eyebrow,.hero .eyebrow{color:var(--o-aqua)}
 
   /* ---------- botones ---------- */
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 16px/1 var(--sans);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:600 15.5px/1 var(--label);letter-spacing:.02em;text-decoration:none;border:0;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
   .btn svg{width:20px;height:20px;flex:none}
   .btn-primary{background:var(--teal-strong);color:#fff;box-shadow:0 14px 30px -14px rgba(47,116,115,.9)}
   .btn-primary:hover{background:#245d5c;transform:translateY(-2px)}
@@ -89,8 +102,8 @@
   .hero{position:relative;background:var(--navy);color:#fff;margin-top:-76px;padding:150px 0 110px;overflow:hidden}
   .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--opal-lin);filter:hue-rotate(var(--hue))}
   .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:48px}
-  .hero h1{font-size:clamp(46px,6.6vw,88px);margin:20px 0 22px}
-  .hero p.lead{font-size:clamp(17px,1.5vw,19.5px);color:rgba(255,255,255,.74);max-width:40ch;margin:0 0 34px}
+  .hero h1{font-size:clamp(36px,5.2vw,68px);margin:20px 0 22px}
+  .hero p.lead{font-weight:300;font-size:clamp(17px,1.5vw,19.5px);color:rgba(255,255,255,.74);max-width:40ch;margin:0 0 34px}
   .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
   .hero-meta{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:40px;font-size:14.5px;color:rgba(255,255,255,.72)}
   .hero-meta span{display:inline-flex;align-items:center;gap:8px}
@@ -99,15 +112,6 @@
 
   /* el ojo-ópalo: su logo, pintado con juego de color */
   .eye-stage{position:relative;width:min(100%,540px);aspect-ratio:1;margin-inline:auto;display:grid;place-items:center}
-  .halo{position:absolute;inset:4%;border-radius:50%;background:var(--opal);opacity:.16;filter:blur(60px) hue-rotate(var(--hue))}
-  .fibers{position:absolute;inset:8%;border-radius:50%;opacity:.5;
-    background:repeating-conic-gradient(from 0deg,rgba(143,216,210,.38) 0 .5deg,transparent .5deg 3.6deg);
-    -webkit-mask:radial-gradient(circle,transparent 30%,#000 44%,#000 58%,transparent 72%);
-            mask:radial-gradient(circle,transparent 30%,#000 44%,#000 58%,transparent 72%);
-    animation:spin 120s linear infinite}
-  .ring{position:absolute;border-radius:50%;border:1px solid var(--line-night)}
-  .ring.r1{inset:2%}
-  .ring.r2{inset:16%;border-style:dashed;animation:spin 90s linear infinite reverse}
   .eye-big{position:relative;width:86%;filter:drop-shadow(0 20px 40px rgba(0,0,0,.35))}
   .eye-big svg{width:100%;height:auto;overflow:visible}
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -121,18 +125,18 @@
   /* ---------- secciones ---------- */
   section{padding:104px 0}
   .section-head{max-width:740px;margin-bottom:56px}
-  .section-head h2{font-size:clamp(38px,5vw,62px);margin-top:14px}
+  .section-head h2{font-size:clamp(28px,3.6vw,46px);margin-top:14px}
   .section-head p{color:var(--ink-soft);font-size:18px;margin:18px 0 0}
   .night{background:var(--navy);color:#EEF5F5;position:relative;overflow:hidden}
   .night .section-head p,.night p{color:rgba(238,245,245,.74)}
 
   /* manifiesto + valores */
   .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
-  .manifesto blockquote{margin:0;font-family:var(--serif);font-size:clamp(38px,5vw,66px);line-height:1.05}
+  .manifesto blockquote{margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,3.8vw,50px);line-height:1.12}
   .manifesto .intro{color:var(--ink-soft);font-size:18px;margin:0}
   .values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px}
   .value{border-top:2px solid var(--teal);padding-top:22px}
-  .value h3{font-size:30px;margin-bottom:8px}
+  .value h3{font-size:21px;margin-bottom:8px}
   .value p{margin:0;color:var(--ink-soft);font-size:16px}
 
   /* servicios */
@@ -143,7 +147,7 @@
   .service:hover::after{transform:scaleX(1)}
   .service .ico{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--teal-soft);color:var(--teal-strong)}
   .service .ico svg{width:28px;height:28px}
-  .service h3{font-size:29px;margin-bottom:8px}
+  .service h3{font-size:21px;margin-bottom:8px}
   .service p{margin:0;color:var(--ink-soft);font-size:15.5px}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
   .tags span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--pearl);border:1px solid var(--line);color:var(--ink-soft)}
@@ -154,8 +158,8 @@
   .doc-card img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;border-radius:236px 236px 18px 18px}
   .doc-card figcaption{position:absolute;left:14px;right:14px;bottom:14px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:16px;background:rgba(14,33,47,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;font-size:13.5px;line-height:1.35}
   .doc-card figcaption svg{width:44px;flex:none;color:var(--o-aqua)}
-  .doc-card figcaption b{display:block;font:400 italic 21px/1.1 var(--serif)}
-  .doc h2{font-size:clamp(40px,5vw,62px);margin:14px 0 6px}
+  .doc-card figcaption b{display:block;font:600 16.5px/1.2 var(--sans)}
+  .doc h2{font-size:clamp(28px,3.6vw,46px);margin:14px 0 6px}
   .doc .role{font-weight:600;color:var(--teal-strong);margin:0 0 22px}
   .doc p{color:var(--ink-soft);margin:0 0 16px}
   .cred-list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px}
@@ -166,35 +170,35 @@
   /* reseñas */
   .reviews-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px}
   .score{display:flex;align-items:center;gap:18px}
-  .score b{font:400 84px/1 var(--serif)}
+  .score b{font:400 80px/1 var(--display)}
   .score .stars{font-size:22px}
   .score small{display:block;color:rgba(238,245,245,.7);font-size:14px}
   .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .quote{background:var(--navy-2);border:1px solid var(--line-night);border-radius:var(--radius);padding:30px 28px;display:flex;flex-direction:column;gap:18px}
-  .quote p{margin:0;font-family:var(--serif);font-size:25px;line-height:1.25;color:#fff}
+  .quote p{margin:0;font-weight:300;font-size:20px;line-height:1.5;color:#fff}
   .quote footer{font-size:13.5px;color:rgba(238,245,245,.6);display:flex;align-items:center;gap:8px;margin-top:auto}
 
   /* cuándo acudir */
   .when-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
   .signs{list-style:none;margin:0;padding:0;display:grid;gap:12px}
   .signs li{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
-  .signs li svg{flex:none;width:26px;height:14px;margin-top:6px;color:var(--teal)}
+  .signs li .dot{flex:none;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-top:10px}
   .urgent{margin-top:28px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px 28px}
-  .urgent strong{display:block;font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:6px;color:var(--o-peach)}
+  .urgent strong{display:block;font-family:var(--sans);font-weight:600;font-size:22px;margin-bottom:6px;color:var(--o-peach)}
   .urgent p{margin:0;color:rgba(255,255,255,.8);font-size:15.5px}
 
   /* pasos */
   .steps-sec{background:var(--teal-soft)}
   .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .step{counter-increment:s;background:var(--surface);border-radius:var(--radius);padding:30px 24px;border:1px solid var(--line)}
-  .step::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--serif);font-size:52px;line-height:1;margin-bottom:16px;color:var(--teal)}
-  .step h3{font-size:26px;margin-bottom:8px}
+  .step::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--display);font-size:44px;line-height:1;margin-bottom:16px;color:var(--teal)}
+  .step h3{font-size:20px;margin-bottom:8px}
   .step p{margin:0;font-size:15.5px;color:var(--ink-soft)}
 
   /* contacto */
   .visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px}
-  .card h3{font-size:32px;margin-bottom:20px}
+  .card h3{font-size:22px;margin-bottom:20px}
   .info{list-style:none;margin:0;padding:0;display:grid;gap:18px}
   .info li{display:flex;gap:14px}
   .info svg{flex:none;width:22px;height:22px;color:var(--teal);margin-top:3px}
@@ -202,20 +206,64 @@
   .info a{text-decoration:none;font-weight:600}
   .info a:hover{color:var(--teal-strong)}
   .hours{display:grid;grid-template-columns:auto auto;gap:2px 18px;justify-content:start}
-  form.wa{display:grid;gap:14px}
-  form.wa label{display:grid;gap:6px;font-size:14px;font-weight:600}
-  form.wa input,form.wa select,form.wa textarea{font:inherit;font-size:16px;padding:13px 15px;border-radius:14px;border:1.5px solid var(--line);background:var(--pearl);color:var(--ink);width:100%}
-  form.wa input:focus,form.wa select:focus,form.wa textarea:focus{outline:none;border-color:var(--teal);background:#fff}
-  form.wa textarea{min-height:96px;resize:vertical}
-  form.wa .btn{width:100%}
-  form.wa .fine{font-size:13px;color:var(--ink-soft);margin:0}
-  .map{grid-column:1/-1;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--teal-soft);height:380px}
-  .map iframe{width:100%;height:100%;border:0}
+  .map{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--teal-soft);min-height:380px}
+  .map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+
+
+  /* convenios */
+  .deals{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+  .deal{border-radius:var(--radius);padding:38px 34px;display:flex;flex-direction:column;gap:14px}
+  .deal h3{font-size:clamp(24px,2.6vw,30px)}
+  .deal p{margin:0}
+  .deal .hero-actions{margin-top:auto;padding-top:12px}
+  .deal-main{position:relative;background:var(--navy);color:#fff;border:2px solid transparent;background:linear-gradient(var(--navy),var(--navy)) padding-box,var(--opal-lin) border-box;overflow:hidden}
+  .deal-main p{color:rgba(238,245,245,.78)}
+  .deal-main .eyebrow{color:var(--o-aqua)}
+  .deal-name{font:400 17px/1 var(--display);letter-spacing:.3em;color:#fff;padding:9px 14px;border:1.5px solid rgba(255,255,255,.35);border-radius:10px;align-self:flex-start}
+  .deal-alt{background:var(--surface);border:1px solid var(--line)}
+  .deal-alt p{color:var(--ink-soft)}
+
+  /* agenda en línea */
+  .agenda-sec{background:var(--teal-soft)}
+  .agenda{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+  .agenda .section-head{margin-bottom:0}
+  .sched-box{margin-top:26px;padding:20px 22px;border-radius:18px;background:var(--surface);border:1px solid var(--line);font-size:15.5px}
+  .sched-box b{display:block;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px}
+  .booking{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);min-width:0}
+  .booking-title{font:600 21px/1.2 var(--sans);margin:0 0 18px}
+  .demo-flag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--o-peach);color:var(--navy);padding:5px 11px;border-radius:999px;margin-bottom:16px}
+  .date-strip{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .date-chip{flex:none;scroll-snap-align:start;width:74px;padding:12px 0;border-radius:16px;border:1.5px solid var(--line);background:var(--pearl);color:var(--ink);display:grid;gap:3px;justify-items:center;cursor:pointer;font:inherit;transition:border-color .2s,background .2s}
+  .date-chip:hover:not(:disabled){border-color:var(--teal)}
+  .date-chip .dow{font-family:var(--label);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+  .date-chip .dd{font:600 26px/1.1 var(--label)}
+  .date-chip .mo{font-size:12px;color:var(--ink-soft)}
+  .date-chip.selected{background:var(--navy);border-color:var(--navy);color:#fff}
+  .date-chip.selected .dow,.date-chip.selected .mo{color:var(--o-aqua)}
+  .date-chip:disabled{opacity:.45;cursor:not-allowed}
+  .slot-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin-top:20px}
+  .slot-btn{min-height:48px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font:600 15px/1 var(--label);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+  .slot-btn:hover{border-color:var(--teal)}
+  .slot-btn.selected{background:var(--teal-strong);border-color:var(--teal-strong);color:#fff}
+  .empty-note{color:var(--ink-soft);margin:20px 0 0}
+  .book-form{display:grid;gap:14px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line)}
+  .book-form .when{margin:0;font-weight:600;color:var(--teal-strong)}
+  .book-form label{display:grid;gap:6px;font-size:14px;font-weight:600}
+  .book-form input,.book-form select{font:inherit;font-size:16px;padding:13px 15px;border-radius:14px;border:1.5px solid var(--line);background:var(--pearl);color:var(--ink);width:100%}
+  .book-form input:focus,.book-form select:focus{outline:none;border-color:var(--teal);background:#fff}
+  .book-form .btn{width:100%}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .form-msg{margin:0;font-size:14.5px;font-weight:600}
+  .form-msg.error{color:#B3261E}
+  .form-msg.ok{color:var(--teal-strong)}
+  .confirm-card{margin-top:24px;padding:28px 24px;border-radius:18px;background:var(--teal-soft);text-align:center}
+  .confirm-card h3{font-size:24px;margin-bottom:6px}
+  .confirm-card p{margin:0 0 18px;color:var(--ink-soft)}
 
   /* CTA final y pie */
   .cta-band{text-align:center;padding:110px 0}
   .cta-band .big-mark{width:120px;margin:0 auto 26px;color:var(--teal)}
-  .cta-band h2{font-size:clamp(40px,6vw,76px);max-width:16ch;margin:0 auto 32px}
+  .cta-band h2{font-size:clamp(32px,4.6vw,58px);max-width:16ch;margin:0 auto 32px}
   .cta-band .hero-actions{justify-content:center}
   footer.site{background:#0A1923;color:rgba(238,245,245,.66);padding:52px 0 40px;font-size:14.5px}
   .foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
@@ -239,9 +287,9 @@
 
   /* ---------- responsive ---------- */
   @media (max-width:980px){
-    .hero-grid,.manifesto-grid,.when-grid,.doc,.visit{grid-template-columns:1fr}
+    .hero-grid,.manifesto-grid,.when-grid,.doc,.visit,.deals,.agenda{grid-template-columns:1fr}
     .hero{padding:118px 0 80px}
-    .eye-stage{width:min(80vw,380px);order:-1;margin-bottom:-10px}
+    .eye-stage{width:min(80vw,380px);aspect-ratio:auto;order:-1;margin:0 auto 34px}
     .services,.quotes{grid-template-columns:1fr}
     .steps{grid-template-columns:1fr 1fr}
     .values{grid-template-columns:1fr}
@@ -261,7 +309,8 @@
     body{font-size:16px}
     section{padding:76px 0}
     .steps{grid-template-columns:1fr}
-    .card{padding:26px 22px}
+    .card,.booking{padding:26px 20px}
+    .deal{padding:30px 22px}
     .service{grid-template-columns:1fr;padding:26px 22px}
     .hero-actions .btn{flex:1 1 100%}
     .brand .logo{height:40px}
@@ -279,7 +328,6 @@
   <defs>
     <symbol id="mark" viewBox="47 210 164 87"><path fill="currentColor" d="M111.2 293.84C111.06 293.82 109.87 293.76 108.55 293.7C107.01 293.63 105.6 293.51 104.6 293.35C103.75 293.22 102.27 293.01 101.32 292.9C100.37 292.78 99.14 292.58 98.6 292.44C98.05 292.31 96.98 292.09 96.2 291.95C95.43 291.81 94.45 291.59 94.02 291.45C93.6 291.32 92.91 291.14 92.5 291.05C89.31 290.36 81.91 287.69 77.39 285.6C67.99 281.25 57.33 274.04 50.91 267.7C49.52 266.32 49.62 266.05 53.23 261.16C58.33 254.23 63.25 248.79 69.89 242.71C71.96 240.81 76.04 237.43 77.5 236.4C77.91 236.11 78.92 235.37 79.75 234.75C81.57 233.39 83.8 231.84 85.15 230.99C87.64 229.44 89.07 228.57 90.7 227.65C91.66 227.11 92.88 226.43 93.4 226.13C94.91 225.27 100.09 222.71 101.9 221.93C105.51 220.38 106.82 219.88 110.45 218.7C114 217.55 115.14 217.21 116.3 216.95C116.92 216.81 117.77 216.59 118.19 216.46C118.62 216.32 119.48 216.12 120.11 216C120.74 215.89 121.67 215.68 122.17 215.54C122.68 215.41 123.94 215.16 124.97 215.01C126.01 214.85 127.28 214.63 127.8 214.52C128.32 214.41 129.76 214.22 131 214.1C132.24 213.99 133.99 213.8 134.9 213.69C135.81 213.59 136.75 213.48 137 213.45C137.79 213.36 146.37 213.1 148.6 213.1C151.97 213.1 158.19 213.4 159.8 213.65C160.32 213.73 161.56 213.86 162.55 213.94C166.9 214.31 168.02 214.42 169.15 214.61C170.29 214.79 174.11 215.11 176.8 215.25C177.49 215.28 178.7 215.37 179.5 215.45C182.65 215.77 183.44 215.81 188.6 215.9C192.42 215.98 195.6 215.97 199.7 215.89C206.18 215.76 206.25 215.76 206.62 215.91C208.88 216.82 200.36 220.9 192.7 222.59C188.5 223.51 186.08 223.82 178.76 224.35C176.09 224.54 170.74 224.54 167 224.35C159 223.95 146.45 223.89 143.4 224.24C142.66 224.33 141.26 224.47 140.3 224.55C138.04 224.75 136.29 224.97 135.1 225.2C134.58 225.3 133.45 225.48 132.6 225.6C131.75 225.71 130.58 225.92 130 226.06C129.42 226.2 128.32 226.44 127.55 226.6C118.57 228.39 106.27 233.05 97.75 237.88C93.79 240.12 88.59 243.48 87.43 244.54C86.26 245.61 86.22 246.26 87.12 250.45C90.1 264.42 100.68 275 114.5 277.85C116.92 278.34 117.99 278.44 121.2 278.44C125.3 278.44 126.93 278.21 129.82 277.21C131.87 276.5 132.49 276.18 132.29 275.94C132.2 275.83 131.66 275.8 129.66 275.8C125.33 275.79 123.63 275.65 119.59 274.95C117.52 274.59 113.86 273.33 111.51 272.18C107.69 270.29 102.33 266.16 101.51 264.47C100.96 263.34 101.52 263.41 104.75 264.85C107.82 266.22 111.66 267.3 114.75 267.66C116.89 267.92 121.49 267.92 123.5 267.66C129.14 266.94 134.45 264.56 137.99 261.15C140.51 258.72 142.38 255.84 143.41 252.8C144.08 250.83 144.1 248.42 143.46 247.03C142.52 245.01 140.36 244.6 138.33 246.07C136.91 247.09 136.7 247.22 135.47 247.72C134 248.33 133.68 248.53 133.11 249.16C132.87 249.43 132.54 249.8 132.37 249.98C131.62 250.81 130.58 250.6 129.36 249.38C128.09 248.09 128.08 247.6 129.32 245.79C130.17 244.55 130.24 244.22 130.16 242.32C130.04 239.77 130.47 238.92 132.77 237.19C134.21 236.1 134.86 235.15 135.29 233.5C135.66 232.09 135.8 231.71 136.06 231.51C136.44 231.21 136.82 231.41 137.28 232.15C138.16 233.56 138.65 233.47 139.47 231.72C140.21 230.12 140.47 229.88 140.96 230.28C141.29 230.54 141.5 231.03 141.65 231.9C141.9 233.35 142.16 233.59 143.82 233.95C147.18 234.69 150.48 236.24 152.96 238.24C154.92 239.82 156.94 242.49 157.81 244.66C158.91 247.41 159.43 250.79 159.21 253.79C158.77 259.75 157.11 264.86 153.73 270.62C152.5 272.71 152.44 273.36 153.47 273.34C154.61 273.31 161.22 269.72 166.35 266.35C173.36 261.74 178.69 257.26 184.84 250.81C186.36 249.23 187.78 247.81 188 247.65C190.07 246.22 187.1 251.64 182.34 258.01C177.58 264.37 172.76 269.44 166.35 274.81C161.89 278.55 155.38 282.72 149.65 285.51C145.96 287.31 143.78 288.18 139.2 289.73C138.06 290.11 135.46 290.9 135.34 290.9C135.28 290.9 134.52 291.1 133.64 291.35C132.77 291.59 131.62 291.86 131.1 291.95C130.58 292.04 129.59 292.24 128.9 292.4C128.21 292.56 126.59 292.83 125.3 293C124.01 293.17 122.52 293.37 122 293.45C120.17 293.73 112.52 294 111.2 293.84ZM92.64 278.69C93.28 278.39 92.92 277.67 91.22 275.88C88.14 272.63 86.16 269.84 84.29 266.09C83.07 263.65 81.52 259.46 81.16 257.65C81.07 257.21 80.86 256.38 80.7 255.81C80.53 255.23 80.33 254.23 80.24 253.57C79.96 251.41 79.52 250.96 78.39 251.69C77.07 252.54 70.04 259.37 66.65 263.1C63.5 266.57 63.49 266.55 69.2 269.73C74.74 272.83 81.26 275.58 88.06 277.7C91.2 278.68 92.18 278.89 92.64 278.69Z"/></symbol>
     <symbol id="lockup" viewBox="46 209 416 88"><path style="fill:var(--lk-icon,#53A4A3)" d="M111.2 293.84C111.06 293.82 109.87 293.76 108.55 293.7C107.01 293.63 105.6 293.51 104.6 293.35C103.75 293.22 102.27 293.01 101.32 292.9C100.37 292.78 99.14 292.58 98.6 292.44C98.05 292.31 96.98 292.09 96.2 291.95C95.43 291.81 94.45 291.59 94.02 291.45C93.6 291.32 92.91 291.14 92.5 291.05C89.31 290.36 81.91 287.69 77.39 285.6C67.99 281.25 57.33 274.04 50.91 267.7C49.52 266.32 49.62 266.05 53.23 261.16C58.33 254.23 63.25 248.79 69.89 242.71C71.96 240.81 76.04 237.43 77.5 236.4C77.91 236.11 78.92 235.37 79.75 234.75C81.57 233.39 83.8 231.84 85.15 230.99C87.64 229.44 89.07 228.57 90.7 227.65C91.66 227.11 92.88 226.43 93.4 226.13C94.91 225.27 100.09 222.71 101.9 221.93C105.51 220.38 106.82 219.88 110.45 218.7C114 217.55 115.14 217.21 116.3 216.95C116.92 216.81 117.77 216.59 118.19 216.46C118.62 216.32 119.48 216.12 120.11 216C120.74 215.89 121.67 215.68 122.17 215.54C122.68 215.41 123.94 215.16 124.97 215.01C126.01 214.85 127.28 214.63 127.8 214.52C128.32 214.41 129.76 214.22 131 214.1C132.24 213.99 133.99 213.8 134.9 213.69C135.81 213.59 136.75 213.48 137 213.45C137.79 213.36 146.37 213.1 148.6 213.1C151.97 213.1 158.19 213.4 159.8 213.65C160.32 213.73 161.56 213.86 162.55 213.94C166.9 214.31 168.02 214.42 169.15 214.61C170.29 214.79 174.11 215.11 176.8 215.25C177.49 215.28 178.7 215.37 179.5 215.45C182.65 215.77 183.44 215.81 188.6 215.9C192.42 215.98 195.6 215.97 199.7 215.89C206.18 215.76 206.25 215.76 206.62 215.91C208.88 216.82 200.36 220.9 192.7 222.59C188.5 223.51 186.08 223.82 178.76 224.35C176.09 224.54 170.74 224.54 167 224.35C159 223.95 146.45 223.89 143.4 224.24C142.66 224.33 141.26 224.47 140.3 224.55C138.04 224.75 136.29 224.97 135.1 225.2C134.58 225.3 133.45 225.48 132.6 225.6C131.75 225.71 130.58 225.92 130 226.06C129.42 226.2 128.32 226.44 127.55 226.6C118.57 228.39 106.27 233.05 97.75 237.88C93.79 240.12 88.59 243.48 87.43 244.54C86.26 245.61 86.22 246.26 87.12 250.45C90.1 264.42 100.68 275 114.5 277.85C116.92 278.34 117.99 278.44 121.2 278.44C125.3 278.44 126.93 278.21 129.82 277.21C131.87 276.5 132.49 276.18 132.29 275.94C132.2 275.83 131.66 275.8 129.66 275.8C125.33 275.79 123.63 275.65 119.59 274.95C117.52 274.59 113.86 273.33 111.51 272.18C107.69 270.29 102.33 266.16 101.51 264.47C100.96 263.34 101.52 263.41 104.75 264.85C107.82 266.22 111.66 267.3 114.75 267.66C116.89 267.92 121.49 267.92 123.5 267.66C129.14 266.94 134.45 264.56 137.99 261.15C140.51 258.72 142.38 255.84 143.41 252.8C144.08 250.83 144.1 248.42 143.46 247.03C142.52 245.01 140.36 244.6 138.33 246.07C136.91 247.09 136.7 247.22 135.47 247.72C134 248.33 133.68 248.53 133.11 249.16C132.87 249.43 132.54 249.8 132.37 249.98C131.62 250.81 130.58 250.6 129.36 249.38C128.09 248.09 128.08 247.6 129.32 245.79C130.17 244.55 130.24 244.22 130.16 242.32C130.04 239.77 130.47 238.92 132.77 237.19C134.21 236.1 134.86 235.15 135.29 233.5C135.66 232.09 135.8 231.71 136.06 231.51C136.44 231.21 136.82 231.41 137.28 232.15C138.16 233.56 138.65 233.47 139.47 231.72C140.21 230.12 140.47 229.88 140.96 230.28C141.29 230.54 141.5 231.03 141.65 231.9C141.9 233.35 142.16 233.59 143.82 233.95C147.18 234.69 150.48 236.24 152.96 238.24C154.92 239.82 156.94 242.49 157.81 244.66C158.91 247.41 159.43 250.79 159.21 253.79C158.77 259.75 157.11 264.86 153.73 270.62C152.5 272.71 152.44 273.36 153.47 273.34C154.61 273.31 161.22 269.72 166.35 266.35C173.36 261.74 178.69 257.26 184.84 250.81C186.36 249.23 187.78 247.81 188 247.65C190.07 246.22 187.1 251.64 182.34 258.01C177.58 264.37 172.76 269.44 166.35 274.81C161.89 278.55 155.38 282.72 149.65 285.51C145.96 287.31 143.78 288.18 139.2 289.73C138.06 290.11 135.46 290.9 135.34 290.9C135.28 290.9 134.52 291.1 133.64 291.35C132.77 291.59 131.62 291.86 131.1 291.95C130.58 292.04 129.59 292.24 128.9 292.4C128.21 292.56 126.59 292.83 125.3 293C124.01 293.17 122.52 293.37 122 293.45C120.17 293.73 112.52 294 111.2 293.84ZM92.64 278.69C93.28 278.39 92.92 277.67 91.22 275.88C88.14 272.63 86.16 269.84 84.29 266.09C83.07 263.65 81.52 259.46 81.16 257.65C81.07 257.21 80.86 256.38 80.7 255.81C80.53 255.23 80.33 254.23 80.24 253.57C79.96 251.41 79.52 250.96 78.39 251.69C77.07 252.54 70.04 259.37 66.65 263.1C63.5 266.57 63.49 266.55 69.2 269.73C74.74 272.83 81.26 275.58 88.06 277.7C91.2 278.68 92.18 278.89 92.64 278.69Z"/><path style="fill:var(--lk-word,#FFFFFF)" d="M231.94 255.11C231.66 255.06 231.14 254.93 230.79 254.81C230.44 254.7 229.72 254.52 229.2 254.41C226.82 253.92 223.46 252.08 221.38 250.12C219.43 248.29 217.43 245.26 217.1 243.65C217.03 243.32 216.82 242.64 216.62 242.15L216.26 241.25L216.22 239.07C216.18 236.7 216.26 235.95 216.64 235.08C216.77 234.79 216.95 234.19 217.05 233.75C217.26 232.81 218.13 231.07 219.03 229.8C221.52 226.28 225.27 223.79 229.85 222.62L231.65 222.16L234.3 222.13C237.22 222.09 237.44 222.11 239.8 222.73C241.94 223.29 243.27 223.91 245.45 225.35C247.92 226.99 250.01 229.28 251.04 231.5C251.18 231.8 251.43 232.29 251.59 232.59C251.77 232.93 251.92 233.41 251.99 233.88C252.06 234.34 252.25 234.94 252.48 235.44L252.85 236.25L252.85 238.6L252.85 240.95L252.48 241.75C252.28 242.2 252.07 242.88 252 243.3C251.71 245.04 249.76 248.09 247.69 250.04C246.39 251.27 244.33 252.7 243.13 253.21C242.86 253.33 242.22 253.61 241.7 253.85C241.1 254.13 240.48 254.32 240.02 254.39C239.62 254.45 238.88 254.64 238.37 254.82L237.45 255.13L234.95 255.16C233.57 255.17 232.22 255.15 231.94 255.11ZM261.72 254.95C261.05 254.65 261.09 255.72 261.09 238.69C261.09 223.8 261.1 223.28 261.28 222.86C261.6 222.16 261.17 222.19 270 222.22L277.95 222.25L279.04 222.59C282.34 223.6 284.73 225.53 286.06 228.29C286.89 230.02 286.93 230.19 286.88 232.69L286.85 234.76L286.27 235.95C284.67 239.22 282.3 241.11 278.33 242.27C277.82 242.42 276.96 242.45 271.43 242.49L265.11 242.55L264.81 242.84C264.37 243.26 264.37 243.31 264.36 248.9C264.35 254.36 264.35 254.36 263.8 254.85C263.51 255.11 262.22 255.18 261.72 254.95ZM289.03 254.95C288.26 254.62 288.24 254.01 288.95 252.55C289.19 252.06 289.66 251.04 290 250.3C290.34 249.56 290.83 248.48 291.1 247.9C291.36 247.32 291.77 246.42 292 245.9C292.24 245.38 292.66 244.43 292.95 243.8C293.24 243.17 293.67 242.22 293.9 241.7C294.46 240.45 296.1 236.87 296.85 235.25C296.98 234.97 297.27 234.34 297.5 233.85C297.73 233.36 298.16 232.41 298.45 231.75C298.95 230.61 299.37 229.69 300.52 227.15C300.8 226.54 301.2 225.65 301.42 225.15C301.84 224.21 302.16 223.6 302.58 222.98C303.18 222.07 304.76 221.93 305.46 222.71C305.81 223.11 307.63 226.82 307.85 227.6C307.89 227.74 308.12 228.23 308.35 228.7C308.58 229.17 308.81 229.66 308.84 229.8C308.91 230.03 309.08 230.39 310.39 233.11C310.67 233.69 310.9 234.2 310.9 234.25C310.9 234.3 311.1 234.74 311.34 235.24C311.58 235.74 312.01 236.66 312.29 237.28C312.57 237.89 313.02 238.89 313.3 239.48C313.57 240.07 313.8 240.59 313.8 240.64C313.8 240.73 314.71 242.74 315.3 243.96C315.52 244.4 315.77 244.97 315.85 245.21C315.94 245.45 316.13 245.87 316.29 246.15C316.44 246.42 316.65 246.88 316.75 247.15C316.85 247.43 317.1 247.99 317.3 248.4C317.51 248.81 317.73 249.33 317.8 249.55C317.92 249.93 318.47 251.14 319.31 252.85C320.08 254.42 319.73 255.1 318.15 255.1C316.53 255.1 316.18 254.66 314.34 250.35C314.15 249.91 313.84 249.23 313.66 248.85C313 247.49 312.3 245.94 312.3 245.85C312.3 245.79 312.1 245.34 311.86 244.85C311.62 244.36 311.2 243.46 310.92 242.85C310.64 242.24 310.16 241.2 309.86 240.54C309.55 239.87 309.3 239.29 309.3 239.25C309.3 239.17 308.24 236.86 307.7 235.75C307.48 235.31 307.08 234.44 306.8 233.82C306.17 232.41 305.35 230.6 305.04 229.94C304.39 228.54 303.44 228.62 302.95 230.1C302.85 230.4 302.6 230.99 302.4 231.4C302.19 231.81 301.99 232.26 301.95 232.4C301.86 232.72 300.93 234.77 300.34 235.95C300.1 236.44 299.9 236.89 299.9 236.93C299.9 237 299.38 238.11 298.49 239.97C298.27 240.41 298.01 241.02 297.91 241.32C297.81 241.61 297.55 242.21 297.33 242.65C297.11 243.09 296.87 243.63 296.8 243.85C296.73 244.07 296.54 244.48 296.39 244.75C296.23 245.03 296.04 245.45 295.95 245.7C295.87 245.95 295.62 246.51 295.41 246.95C294.62 248.57 294 249.9 294 249.97C294 250.01 293.76 250.56 293.46 251.2C293.17 251.83 292.85 252.56 292.75 252.82C292.47 253.61 291.68 254.74 291.27 254.93C290.83 255.14 289.49 255.15 289.03 254.95ZM326.95 254.91C326.19 254.57 326.25 255.93 326.25 238.66C326.25 224.23 326.26 223.13 326.42 222.84C326.93 221.9 328.88 221.94 329.45 222.9C329.65 223.25 329.65 223.4 329.7 237.1C329.75 249.91 329.76 250.97 329.92 251.26C330.28 251.92 329.98 251.9 338.27 251.9C346.55 251.9 346.26 251.88 346.78 252.55C347.42 253.36 347.01 254.69 346.02 254.98C345.73 255.07 343.19 255.1 336.49 255.1C327.87 255.1 327.33 255.09 326.95 254.91ZM371.4 254.99C370.94 254.8 370.61 254.4 370.5 253.86C370.43 253.51 370.4 248.64 370.42 238.4C370.45 223.68 370.45 223.44 370.65 223.06C371.1 222.18 370.09 222.25 381.45 222.22L391.49 222.2L391.84 222.5C392.39 222.99 392.49 223.99 392.06 224.65C391.69 225.22 391.91 225.21 382.98 225.2C373.77 225.19 374.4 225.14 374.13 225.91C373.93 226.49 373.95 234.58 374.16 235.1C374.48 235.89 374.12 235.85 381.52 235.86C385.14 235.87 388.21 235.91 388.35 235.94C389.07 236.12 389.22 238.03 388.57 238.68L388.33 238.92L381.52 238.94L374.72 238.95L374.46 239.19C374 239.62 373.99 239.82 374.02 245.62C374.05 250.99 374.05 251.09 374.26 251.37C374.67 251.92 374.28 251.9 383.85 251.9C392.12 251.9 392.77 251.91 393.09 252.08C393.67 252.37 393.85 252.71 393.85 253.5C393.85 254.29 393.67 254.63 393.09 254.92C392.77 255.09 392.05 255.1 382.2 255.09C375.46 255.09 371.56 255.05 371.4 254.99ZM413.2 254.88C412.3 254.41 412.36 254.95 412.3 246.65C412.25 239.48 412.25 239.34 412.04 238.9C411.79 238.38 411.21 237.58 410.01 236.1C409.53 235.52 408.81 234.62 408.41 234.1C408 233.58 407.09 232.45 406.4 231.6C405.7 230.75 404.73 229.53 404.25 228.9C403.76 228.27 402.76 227.01 402.01 226.1C400.15 223.84 399.98 223.58 400.02 223.02C400.07 222.33 400.37 222.15 401.48 222.16C402.47 222.17 402.92 222.29 403.43 222.68C403.84 222.99 405.24 224.65 406.48 226.3C406.96 226.93 407.77 227.93 408.28 228.53C408.79 229.12 409.66 230.22 410.22 230.98C411.54 232.75 413.34 234.87 413.71 235.05C414.43 235.43 414.78 235.19 416.19 233.34C416.82 232.52 417.66 231.47 418.05 231C418.44 230.53 419.25 229.52 419.85 228.75C420.45 227.98 421.43 226.74 422.05 226C422.66 225.26 423.38 224.36 423.66 224C424.77 222.53 425.34 222.2 426.77 222.2C427.96 222.2 428.3 222.4 428.3 223.1C428.3 223.47 427.89 224.04 425.65 226.82C424.65 228.05 423.37 229.66 422.8 230.4C422.23 231.14 421.22 232.4 420.55 233.2C419.88 234 418.86 235.26 418.3 236C417.73 236.74 417.07 237.59 416.83 237.89C415.87 239.07 415.96 238.25 415.9 246.65C415.85 254.7 415.87 254.4 415.28 254.83C414.85 255.15 413.77 255.18 413.2 254.88ZM436.17 254.96C435.71 254.79 435.53 254.65 435.32 254.26C435.16 253.97 435.15 252.81 435.15 238.7C435.15 223.52 435.15 223.45 435.36 223.05C435.5 222.77 435.7 222.58 436.01 222.43L436.45 222.2L446.18 222.2C455.59 222.19 455.92 222.2 456.35 222.39C457.44 222.87 457.47 224.32 456.39 224.95C456.06 225.15 455.85 225.15 447.87 225.17C438.77 225.2 439.24 225.16 438.92 225.88C438.77 226.2 438.75 226.77 438.72 230.2C438.68 234.53 438.72 234.99 439.18 235.43C439.65 235.88 440.09 235.91 446.65 235.89C453.35 235.87 453.14 235.85 453.56 236.47C453.8 236.84 453.81 237.82 453.57 238.27C453.22 238.94 453.47 238.91 446.27 238.93C439.02 238.95 439.31 238.92 438.93 239.63C438.76 239.92 438.75 240.38 438.75 245.4C438.75 251.46 438.73 251.29 439.43 251.67C439.73 251.84 440.39 251.85 448.7 251.9L457.65 251.95L458.01 252.18C458.44 252.44 458.65 252.88 458.65 253.5C458.65 254.12 458.44 254.56 458.01 254.82L457.65 255.05L447.1 255.07C438.45 255.09 436.48 255.07 436.17 254.96ZM236.39 252.26C236.63 252.17 237.47 251.97 238.24 251.81C239.7 251.52 241.13 250.96 242.74 250.06C244.53 249.06 247.43 246.05 248 244.6C248.12 244.3 248.37 243.78 248.56 243.44C248.82 242.98 248.94 242.6 249.04 241.89C249.12 241.37 249.26 240.55 249.34 240.06C249.55 238.9 249.54 238.23 249.31 236.98C249.2 236.41 249.07 235.63 249.01 235.24C248.88 234.38 247.92 232.43 247 231.16C246.12 229.94 244.35 228.32 243.05 227.53C241.9 226.84 239.87 225.98 239.06 225.83C238.61 225.75 237.71 225.56 237.05 225.42C235.36 225.04 233.72 225.04 232.1 225.42C231.47 225.57 230.6 225.76 230.17 225.84C228.57 226.14 226.01 227.53 224.32 229C219.2 233.44 218.37 240.94 222.4 246.28C224.41 248.94 228.02 251.33 230.65 251.75C231.2 251.83 232.03 252.01 232.5 252.14C233.7 252.48 233.74 252.49 234.9 252.45C235.55 252.44 236.12 252.36 236.39 252.26ZM278.07 239.16C280.57 238.34 281.85 237.23 282.9 234.96C284.27 232.04 283.13 228.63 280.12 226.61C279.19 225.99 278.58 225.79 276.09 225.3C275.84 225.25 273.3 225.2 270.44 225.19C264.63 225.17 264.89 225.14 264.55 225.87C264.29 226.41 264.28 238.55 264.54 238.94C265.01 239.66 264.93 239.65 271.35 239.64L276.65 239.62L278.07 239.16Z"/><path style="fill:var(--lk-sub,#0186A1)" d="M220.2 284.74C218.86 284.38 217.47 283.15 216.69 281.62L216.25 280.77L216.25 279.51L216.25 278.25L216.79 277.21C218.27 274.38 221.1 273.33 223.8 274.62C225.86 275.61 227.29 278.42 226.77 280.47C225.96 283.63 223.07 285.51 220.2 284.74ZM271 284.73C270.25 284.34 270.25 284.38 270.22 279.5C270.2 275.5 270.21 275.12 270.37 274.81C270.76 274.06 271.4 273.91 271.77 274.47C271.93 274.71 271.96 275.14 272 278.7C272.04 282.19 272.07 282.69 272.22 282.97C272.45 283.39 272.42 283.38 274.31 283.32C276.66 283.25 277.1 283.38 277.1 284.15C277.1 284.81 276.93 284.85 273.95 284.88C271.61 284.9 271.31 284.89 271 284.73ZM302.68 284.8C301.46 284.59 299.79 283.3 299.13 282.05C298 279.89 298.37 277.44 300.1 275.69C302.22 273.54 305.41 273.56 307.55 275.74C308.48 276.69 308.76 277.23 308.97 278.5C309.29 280.44 308.83 282 307.56 283.25C306.18 284.61 304.58 285.12 302.68 284.8ZM315.02 284.8C314.57 284.69 314.16 284.28 314.01 283.81C313.94 283.55 313.9 282.11 313.9 279.31C313.9 275.41 313.91 275.17 314.1 274.8C314.46 274.09 315.3 274.05 315.67 274.72C315.83 275.02 315.86 275.44 315.9 278.75C315.97 283.62 315.78 283.29 318.43 283.3C320.33 283.3 320.78 283.39 321 283.8C321.17 284.11 321.09 284.4 320.77 284.64C320.5 284.84 320.36 284.85 317.92 284.87C316.51 284.88 315.2 284.85 315.02 284.8ZM329.21 284.79C326.95 284.41 324.8 281.83 324.8 279.5C324.8 279.25 324.89 278.71 325.01 278.3C326.19 274.04 331.12 272.69 334.07 275.82C335.55 277.4 335.94 279.82 335.03 281.72C333.92 284.04 331.72 285.2 329.21 284.79ZM344.18 284.8C342.94 284.58 341.32 283.36 340.58 282.1C339.94 281.02 339.75 279.15 340.13 277.88C340.77 275.77 343.01 274.1 345.2 274.1C347.73 274.1 350.29 276.32 348.85 277.26C348.51 277.48 348.18 277.35 347.5 276.74C346.69 276.02 346.38 275.88 345.54 275.82C344.2 275.73 343.25 276.22 342.51 277.38C340.99 279.78 342.59 283.23 345.22 283.23C346.82 283.23 348.22 281.87 347.77 280.77C347.57 280.3 347.31 280.18 346.27 280.09C345.24 280.01 344.9 279.84 344.9 279.4C344.9 278.88 345.22 278.77 346.97 278.68C349.07 278.58 349.56 278.83 349.81 280.15C350.14 281.95 349.29 283.42 347.36 284.39C346.54 284.8 346.42 284.83 345.57 284.86C345.06 284.88 344.44 284.85 344.18 284.8ZM248.57 284.69C248.1 284.41 248.06 284.08 248 280.1C247.95 276.14 247.93 275.99 247.48 275.84C247.35 275.8 246.79 275.76 246.23 275.76C245.3 275.75 245.2 275.73 244.95 275.5C244.59 275.16 244.63 274.56 245.03 274.26C245.31 274.06 245.41 274.05 249.02 274.05L252.72 274.05L252.96 274.33C253.27 274.69 253.27 275.11 252.95 275.48C252.64 275.85 252.29 275.92 251.49 275.79C250.72 275.67 250.38 275.78 250.16 276.25C250.02 276.53 250 277.1 250 280.02C250 283.6 249.94 284.19 249.58 284.57C249.35 284.82 248.88 284.87 248.57 284.69ZM256.33 284.54C256.06 284.12 256.12 283.41 256.49 282.76C256.66 282.45 256.89 281.85 257.01 281.43C257.13 281 257.37 280.38 257.55 280.05C257.73 279.72 257.95 279.13 258.04 278.75C258.14 278.37 258.36 277.78 258.55 277.45C258.73 277.11 258.96 276.54 259.04 276.17C259.39 274.65 260.25 273.8 261.14 274.1C261.55 274.23 261.73 274.48 261.94 275.21C262.03 275.5 262.25 275.97 262.43 276.25C262.8 276.81 263 277.3 263 277.69C263.01 278.06 263.24 278.65 263.55 279.1C263.7 279.32 263.89 279.79 263.97 280.17C264.05 280.56 264.26 281.1 264.46 281.44C265.05 282.44 265.4 284.29 265.06 284.63C264.66 285.02 264.23 284.8 263.55 283.85C262.86 282.87 262.73 282.83 260.55 282.85C258.42 282.87 258.39 282.88 257.99 283.75C257.62 284.56 257.37 284.8 256.88 284.8C256.59 284.8 256.47 284.74 256.33 284.54ZM287.52 284.63C287.1 284.43 286.78 283.87 285.99 282C285.09 279.86 284.95 279.56 284.76 279.37C284.25 278.87 284.08 279.49 284 282.01C283.96 283.71 283.92 284.11 283.78 284.33C283.53 284.69 283.23 284.76 282.91 284.53C282.43 284.17 282.41 283.95 282.41 279.45C282.4 275.53 282.42 275.22 282.59 274.83C283.13 273.66 284.36 274.02 284.89 275.51C285.02 275.86 285.27 276.42 285.45 276.75C285.63 277.08 285.85 277.6 285.95 277.9C286.05 278.2 286.27 278.72 286.45 279.05C286.63 279.38 286.86 279.93 286.95 280.27C287.22 281.24 287.9 281.65 288.4 281.14C288.59 280.96 289.4 279.21 290.54 276.55C291.23 274.95 291.34 274.75 291.74 274.45C292.42 273.93 293.24 274.1 293.55 274.84C293.8 275.43 293.79 283.56 293.54 284.06C293.18 284.8 292.48 284.87 292.04 284.23C291.74 283.78 291.67 283.18 291.75 281.65C291.85 279.54 291.67 279.32 290.71 280.43C290.23 280.99 290.09 281.24 289.94 281.78C289.67 282.82 288.73 284.5 288.33 284.67C287.93 284.83 287.92 284.83 287.52 284.63ZM362.06 284.59C361.63 284.25 361.84 282.88 362.55 281.52C362.74 281.14 363 280.5 363.11 280.1C363.22 279.71 363.41 279.17 363.54 278.92C363.67 278.66 363.9 278.07 364.05 277.6C364.2 277.13 364.43 276.56 364.56 276.34C364.69 276.11 364.89 275.66 365.01 275.34C365.72 273.43 367.22 273.75 367.98 275.96C368.14 276.45 368.42 277.19 368.59 277.6C369.01 278.62 369.55 280.03 370 281.3C370.2 281.88 370.47 282.55 370.58 282.8C370.83 283.33 370.87 284.26 370.66 284.55C370.48 284.8 369.88 284.8 369.6 284.55C369.49 284.45 369.25 284.09 369.08 283.77C368.59 282.85 368.56 282.84 366.46 282.88C365.47 282.9 364.57 282.96 364.46 283.02C364.34 283.07 363.89 283.5 363.45 283.96C362.59 284.86 362.47 284.91 362.06 284.59ZM232.21 284.44C231.9 284.04 231.89 283.86 231.92 279.25C231.95 275.12 231.96 274.94 232.16 274.6C232.49 274.02 232.73 273.99 236.23 274.02L239.32 274.05L239.56 274.33C239.94 274.78 239.83 275.46 239.33 275.69C239.18 275.76 238.28 275.8 236.84 275.8C234.39 275.8 234.2 275.84 233.84 276.37C233.61 276.73 233.6 277.54 233.83 277.97C234.16 278.6 234.34 278.65 236.35 278.66C237.34 278.67 238.23 278.68 238.33 278.69C238.58 278.71 239 279.15 239 279.4C239 279.51 238.89 279.72 238.75 279.85C238.51 280.1 238.49 280.1 236.58 280.1C233.81 280.1 233.7 280.19 233.6 282.55C233.57 283.32 233.51 284.02 233.46 284.1C233.08 284.74 232.56 284.88 232.21 284.44ZM355.41 284.47C355.06 284.09 355 283.32 355 279.34C355 275.92 355.02 275.58 355.21 274.85L355.41 274.07L355.16 273.57C354.81 272.91 354.83 272.73 355.28 272.3C355.98 271.64 356.71 271.42 357.03 271.78C357.34 272.12 357.24 272.47 356.65 273.09C356 273.78 356 273.76 356.48 274.53L356.85 275.13L356.88 279.34C356.9 283.02 356.89 283.6 356.75 283.98C356.47 284.7 355.85 284.93 355.41 284.47ZM222.41 283.1C223.19 282.86 223.63 282.51 224.26 281.63C224.87 280.77 224.99 280.42 225 279.47C225 278.56 224.92 278.35 224.16 277.17C223.41 276 223.11 275.85 221.6 275.85C220.36 275.85 220.02 275.99 219.27 276.79C218.49 277.62 218.25 278.25 218.25 279.46C218.25 280.42 218.27 280.49 218.63 281.22C219.43 282.85 220.9 283.57 222.41 283.1ZM305.03 282.92C305.73 282.62 306.27 282.04 306.73 281.11C307.19 280.18 307.2 278.75 306.77 277.9C306.02 276.44 305.33 275.91 304.1 275.82C301.86 275.66 300.44 277.32 300.63 279.88C300.73 281.28 301.09 282 302.02 282.63C303.03 283.33 303.93 283.41 305.03 282.92ZM331.35 283.01C332.01 282.71 332.76 282.05 332.99 281.57C333.75 280.01 333.53 277.81 332.52 276.77C331.8 276.02 331.38 275.85 330.25 275.85C329 275.85 328.45 276.08 327.87 276.85C326.48 278.7 326.47 280.28 327.86 282.03C328.69 283.09 330.23 283.52 331.35 283.01ZM261.61 281.3C262.31 280.92 262.24 279.76 261.42 278.13C260.69 276.69 260.13 276.76 259.95 278.3C259.92 278.6 259.78 279.06 259.65 279.32C259.17 280.26 259.15 281.04 259.58 281.29C259.81 281.43 261.36 281.43 261.61 281.3ZM367.45 281.15C367.8 280.81 367.77 280.33 367.35 279.16C366.9 277.91 366.75 277.63 366.49 277.55C365.79 277.33 364.66 279.98 365.11 280.81C365.44 281.43 366.96 281.65 367.45 281.15Z"/></symbol>
-    <symbol id="eyelet" viewBox="0 0 30 16"><path d="M1.5 8C5 3.2 9.6 1.5 15 1.5S25 3.2 28.5 8C25 12.8 20.4 14.5 15 14.5S5 12.8 1.5 8Z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="15" cy="8" r="3.6" fill="currentColor"/></symbol>
     <linearGradient id="opalFill" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#54A5A4"/>
       <stop offset=".3" stop-color="#8FD8D2"/>
@@ -301,10 +349,10 @@
     </button>
     <nav class="main" id="mainNav" aria-label="Principal">
       <a href="#servicios">Servicios</a>
-      <a href="#doctora">La doctora</a>
-      <a href="#resenas">Opiniones</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#convenios">Convenios</a>
       <a href="#contacto">Contacto</a>
-      <a class="btn btn-opal" href="#contacto">Agendar cita</a>
+      <a class="btn btn-opal" href="#agenda">Agendar cita</a>
     </nav>
   </div>
 </header>
@@ -314,11 +362,11 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap hero-grid">
       <div>
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Oftalmología · Aguascalientes</span>
-        <h1 id="hero-title">Cuidamos tu visión con <em class="opal-text">precisión y cercanía.</em></h1>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Oftalmología · Aguascalientes</span>
+        <h1 id="hero-title">Tu mirada, <em class="opal-text">en las mejores manos.</em></h1>
         <p class="lead">Atención oftalmológica integral con diagnóstico preciso, tecnología avanzada y trato humano. Te acompañamos en cada etapa para cuidar tu salud visual.</p>
         <div class="hero-actions">
-          <a class="btn btn-opal" href="https://wa.me/524499997719?text=Hola%2C%20quiero%20agendar%20una%20consulta%20en%20Opal%20Eye" target="_blank" rel="noopener">
+          <a class="btn btn-opal" href="#agenda">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
             Agenda tu consulta
           </a>
@@ -329,16 +377,12 @@
         </div>
         <div class="hero-meta">
           <span><span class="stars" aria-hidden="true">★★★★★</span>5.0 en Google · 13 opiniones</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lun a vie · 9:00 a 20:00</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Lun a vie · 10:00 a 20:00</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Plaza La Cantera</span>
         </div>
       </div>
 
       <div class="eye-stage" aria-hidden="true">
-        <div class="halo"></div>
-        <div class="fibers"></div>
-        <div class="ring r1"></div>
-        <div class="ring r2"></div>
         <div class="eye-big" id="eyeBig">
           <svg viewBox="47 210 164 87"><path id="eyePath" fill="url(#opalFill)" d="M111.2 293.84C111.06 293.82 109.87 293.76 108.55 293.7C107.01 293.63 105.6 293.51 104.6 293.35C103.75 293.22 102.27 293.01 101.32 292.9C100.37 292.78 99.14 292.58 98.6 292.44C98.05 292.31 96.98 292.09 96.2 291.95C95.43 291.81 94.45 291.59 94.02 291.45C93.6 291.32 92.91 291.14 92.5 291.05C89.31 290.36 81.91 287.69 77.39 285.6C67.99 281.25 57.33 274.04 50.91 267.7C49.52 266.32 49.62 266.05 53.23 261.16C58.33 254.23 63.25 248.79 69.89 242.71C71.96 240.81 76.04 237.43 77.5 236.4C77.91 236.11 78.92 235.37 79.75 234.75C81.57 233.39 83.8 231.84 85.15 230.99C87.64 229.44 89.07 228.57 90.7 227.65C91.66 227.11 92.88 226.43 93.4 226.13C94.91 225.27 100.09 222.71 101.9 221.93C105.51 220.38 106.82 219.88 110.45 218.7C114 217.55 115.14 217.21 116.3 216.95C116.92 216.81 117.77 216.59 118.19 216.46C118.62 216.32 119.48 216.12 120.11 216C120.74 215.89 121.67 215.68 122.17 215.54C122.68 215.41 123.94 215.16 124.97 215.01C126.01 214.85 127.28 214.63 127.8 214.52C128.32 214.41 129.76 214.22 131 214.1C132.24 213.99 133.99 213.8 134.9 213.69C135.81 213.59 136.75 213.48 137 213.45C137.79 213.36 146.37 213.1 148.6 213.1C151.97 213.1 158.19 213.4 159.8 213.65C160.32 213.73 161.56 213.86 162.55 213.94C166.9 214.31 168.02 214.42 169.15 214.61C170.29 214.79 174.11 215.11 176.8 215.25C177.49 215.28 178.7 215.37 179.5 215.45C182.65 215.77 183.44 215.81 188.6 215.9C192.42 215.98 195.6 215.97 199.7 215.89C206.18 215.76 206.25 215.76 206.62 215.91C208.88 216.82 200.36 220.9 192.7 222.59C188.5 223.51 186.08 223.82 178.76 224.35C176.09 224.54 170.74 224.54 167 224.35C159 223.95 146.45 223.89 143.4 224.24C142.66 224.33 141.26 224.47 140.3 224.55C138.04 224.75 136.29 224.97 135.1 225.2C134.58 225.3 133.45 225.48 132.6 225.6C131.75 225.71 130.58 225.92 130 226.06C129.42 226.2 128.32 226.44 127.55 226.6C118.57 228.39 106.27 233.05 97.75 237.88C93.79 240.12 88.59 243.48 87.43 244.54C86.26 245.61 86.22 246.26 87.12 250.45C90.1 264.42 100.68 275 114.5 277.85C116.92 278.34 117.99 278.44 121.2 278.44C125.3 278.44 126.93 278.21 129.82 277.21C131.87 276.5 132.49 276.18 132.29 275.94C132.2 275.83 131.66 275.8 129.66 275.8C125.33 275.79 123.63 275.65 119.59 274.95C117.52 274.59 113.86 273.33 111.51 272.18C107.69 270.29 102.33 266.16 101.51 264.47C100.96 263.34 101.52 263.41 104.75 264.85C107.82 266.22 111.66 267.3 114.75 267.66C116.89 267.92 121.49 267.92 123.5 267.66C129.14 266.94 134.45 264.56 137.99 261.15C140.51 258.72 142.38 255.84 143.41 252.8C144.08 250.83 144.1 248.42 143.46 247.03C142.52 245.01 140.36 244.6 138.33 246.07C136.91 247.09 136.7 247.22 135.47 247.72C134 248.33 133.68 248.53 133.11 249.16C132.87 249.43 132.54 249.8 132.37 249.98C131.62 250.81 130.58 250.6 129.36 249.38C128.09 248.09 128.08 247.6 129.32 245.79C130.17 244.55 130.24 244.22 130.16 242.32C130.04 239.77 130.47 238.92 132.77 237.19C134.21 236.1 134.86 235.15 135.29 233.5C135.66 232.09 135.8 231.71 136.06 231.51C136.44 231.21 136.82 231.41 137.28 232.15C138.16 233.56 138.65 233.47 139.47 231.72C140.21 230.12 140.47 229.88 140.96 230.28C141.29 230.54 141.5 231.03 141.65 231.9C141.9 233.35 142.16 233.59 143.82 233.95C147.18 234.69 150.48 236.24 152.96 238.24C154.92 239.82 156.94 242.49 157.81 244.66C158.91 247.41 159.43 250.79 159.21 253.79C158.77 259.75 157.11 264.86 153.73 270.62C152.5 272.71 152.44 273.36 153.47 273.34C154.61 273.31 161.22 269.72 166.35 266.35C173.36 261.74 178.69 257.26 184.84 250.81C186.36 249.23 187.78 247.81 188 247.65C190.07 246.22 187.1 251.64 182.34 258.01C177.58 264.37 172.76 269.44 166.35 274.81C161.89 278.55 155.38 282.72 149.65 285.51C145.96 287.31 143.78 288.18 139.2 289.73C138.06 290.11 135.46 290.9 135.34 290.9C135.28 290.9 134.52 291.1 133.64 291.35C132.77 291.59 131.62 291.86 131.1 291.95C130.58 292.04 129.59 292.24 128.9 292.4C128.21 292.56 126.59 292.83 125.3 293C124.01 293.17 122.52 293.37 122 293.45C120.17 293.73 112.52 294 111.2 293.84ZM92.64 278.69C93.28 278.39 92.92 277.67 91.22 275.88C88.14 272.63 86.16 269.84 84.29 266.09C83.07 263.65 81.52 259.46 81.16 257.65C81.07 257.21 80.86 256.38 80.7 255.81C80.53 255.23 80.33 254.23 80.24 253.57C79.96 251.41 79.52 250.96 78.39 251.69C77.07 252.54 70.04 259.37 66.65 263.1C63.5 266.57 63.49 266.55 69.2 269.73C74.74 272.83 81.26 275.58 88.06 277.7C91.2 278.68 92.18 278.89 92.64 278.69Z"/></svg>
         </div>
@@ -383,7 +427,7 @@
   <section id="servicios" style="padding-top:0" aria-labelledby="serv-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Servicios</span>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Servicios</span>
         <h2 id="serv-title">De la revisión a la cirugía, <em>en las mismas manos.</em></h2>
       </div>
       <div class="services">
@@ -392,15 +436,14 @@
           <div>
             <h3>Consulta oftalmológica integral</h3>
             <p>Evaluación completa para detectar y tratar cualquier alteración de tus ojos.</p>
-            <div class="tags"><span>Agudeza visual</span><span>Refracción</span><span>Presión intraocular</span><span>Revisión detallada</span></div>
+            <div class="tags"><span>Agudeza visual</span><span>Presión intraocular</span><span>Fondo de ojo</span><span>Análisis de película lagrimal</span><span>Revisión detallada</span></div>
           </div>
         </article>
         <article class="service reveal">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><circle cx="11" cy="11" r="2.5"/></svg></div>
           <div>
             <h3>Estudios y diagnóstico especializado</h3>
-            <p>Valoraciones para identificar enfermedades oculares con precisión.</p>
-            <div class="tags"><span>Fondo de ojo</span><span>Análisis de película lagrimal</span></div>
+            <p>Valoraciones complementarias cuando tu caso necesita un análisis más profundo, para identificar enfermedades oculares con precisión.</p>
           </div>
         </article>
         <article class="service reveal">
@@ -421,18 +464,19 @@
     </div>
   </section>
 
-  <!-- DOCTORA -->
-  <section id="doctora" style="padding-top:0" aria-labelledby="doc-title">
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" style="padding-top:0" aria-labelledby="doc-title">
     <div class="wrap doc">
       <figure class="doc-card reveal">
         <img src="dra-paola.jpg" width="498" height="565" loading="lazy" alt="La Dra. Paola Hernández Romo en su consultorio, sosteniendo una lupa de exploración oftalmológica">
         <figcaption><svg viewBox="0 0 164 87" aria-hidden="true"><use href="#mark"/></svg><span><b>Dra. Paola Hernández Romo</b>Cirujano oftalmólogo · Certificada por el CMO</span></figcaption>
       </figure>
       <div class="reveal">
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Quién te atiende</span>
-        <h2 id="doc-title">Dra. Paola <em>Hernández Romo</em></h2>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Sobre mí</span>
+        <h2 id="doc-title">Soy la Dra. Paola <em>Hernández Romo</em></h2>
         <p class="role">Cirujano oftalmólogo</p>
-        <p>Brinda atención personalizada: escucha cada síntoma, realiza evaluaciones detalladas y te explica cada proceso con calma, para que entiendas qué tienes y cuáles son tus opciones.</p>
+        <p>En cada consulta escucho tus síntomas, hago una evaluación detallada y te explico cada paso con calma, para que entiendas qué tienes y cuáles son tus opciones.</p>
+        <p>Mi compromiso es acompañarte antes, durante y después de tu tratamiento, con la misma cercanía en una revisión de rutina que en una cirugía.</p>
         <ul class="cred-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Certificada por el Consejo Mexicano de Oftalmología</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Miembro de la Sociedad Mexicana de Oftalmología</li>
@@ -444,12 +488,42 @@
     </div>
   </section>
 
+
+  <!-- CONVENIOS -->
+  <section id="convenios" style="padding-top:0" aria-labelledby="conv-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Convenios</span>
+        <h2 id="conv-title">Cuidar la vista <em>también es trabajo en equipo.</em></h2>
+      </div>
+      <div class="deals">
+        <article class="deal deal-main reveal">
+          <span class="deal-name">JATCO</span>
+          <h3>¿Trabajas en <em class="opal-text">JATCO?</em></h3>
+          <p>Opal Eye tiene convenio con JATCO. Al agendar, indica que vienes por el convenio y te explicamos los beneficios en tu consulta.</p>
+          <div class="hero-actions">
+            <a class="btn btn-opal" href="#agenda" data-convenio="JATCO">Agendar con convenio</a>
+            <a class="btn btn-line" href="https://wa.me/524499997719?text=Hola%2C%20trabajo%20en%20JATCO%20y%20quiero%20informaci%C3%B3n%20del%20convenio%20con%20Opal%20Eye" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+          </div>
+        </article>
+        <article class="deal deal-alt reveal">
+          <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Para empresas</span>
+          <h3>¿Quieres un convenio para tu empresa?</h3>
+          <p>Llevamos el cuidado de la vista a tu equipo de trabajo. Escríbenos y armamos un convenio a la medida de tu empresa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/524499997719?text=Hola%2C%20me%20interesa%20un%20convenio%20de%20Opal%20Eye%20para%20mi%20empresa" target="_blank" rel="noopener">Solicitar convenio</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- RESEÑAS -->
   <section class="night" id="resenas" aria-labelledby="rev-title">
     <div class="wrap">
       <div class="reviews-top">
         <div class="section-head reveal" style="margin-bottom:0">
-          <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Lo que dicen nuestros pacientes</span>
+          <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Lo que dicen nuestros pacientes</span>
           <h2 id="rev-title">Ver bien <em class="opal-text">se nota.</em></h2>
         </div>
         <div class="score reveal">
@@ -478,7 +552,7 @@
   <section aria-labelledby="when-title">
     <div class="wrap when-grid">
       <div class="section-head reveal" style="margin-bottom:0">
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>¿Cuándo venir?</span>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>¿Cuándo venir?</span>
         <h2 id="when-title">Tus ojos avisan. <em>Escúchalos.</em></h2>
         <p>Muchas enfermedades de los ojos no duelen al principio. Una revisión a tiempo hace toda la diferencia.</p>
         <div class="urgent">
@@ -487,13 +561,13 @@
         </div>
       </div>
       <ul class="signs reveal">
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Ves borroso de lejos o de cerca, o fuerzas la vista para leer.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Tienes diabetes o presión alta: revisa tus ojos por lo menos una vez al año.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Tienes más de 40 años y nunca te has hecho una revisión completa.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Notas la vista nublada o deslumbramiento con las luces, sobre todo de noche.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Ves destellos de luz, “moscas flotantes” o una sombra en tu visión.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Tus ojos están rojos, te arden o lagrimean seguido.</li>
-        <li><svg aria-hidden="true"><use href="#eyelet"/></svg>Hay antecedentes de glaucoma en tu familia.</li>
+        <li><span class="dot" aria-hidden="true"></span>Ves borroso de lejos o de cerca, o fuerzas la vista para leer.</li>
+        <li><span class="dot" aria-hidden="true"></span>Tienes diabetes o presión alta: revisa tus ojos por lo menos una vez al año.</li>
+        <li><span class="dot" aria-hidden="true"></span>Tienes más de 40 años y nunca te has hecho una revisión completa.</li>
+        <li><span class="dot" aria-hidden="true"></span>Notas la vista nublada o deslumbramiento con las luces, sobre todo de noche.</li>
+        <li><span class="dot" aria-hidden="true"></span>Ves destellos de luz, “moscas flotantes” o una sombra en tu visión.</li>
+        <li><span class="dot" aria-hidden="true"></span>Tus ojos están rojos, te arden o lagrimean seguido.</li>
+        <li><span class="dot" aria-hidden="true"></span>Hay antecedentes de glaucoma en tu familia.</li>
       </ul>
     </div>
   </section>
@@ -502,14 +576,34 @@
   <section class="steps-sec" aria-labelledby="steps-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Tu consulta, paso a paso</span>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Tu consulta, paso a paso</span>
         <h2 id="steps-title">Sin sorpresas, <em>de principio a fin.</em></h2>
       </div>
       <div class="steps">
-        <div class="step reveal"><h3>Agenda</h3><p>Escríbenos por WhatsApp o llámanos al 449 999 7719 y elige el horario que te acomode.</p></div>
+        <div class="step reveal"><h3>Agenda</h3><p>Elige día y hora en la agenda en línea, o escríbenos por WhatsApp al 449 999 7719.</p></div>
         <div class="step reveal"><h3>Prepárate</h3><p>Trae tus lentes actuales, tus estudios previos y la lista de medicamentos que tomas.</p></div>
         <div class="step reveal"><h3>Exploración</h3><p>Revisamos tu vista y la salud de tus ojos. Si es necesario dilatar la pupila, ven acompañado y trae lentes de sol: no podrás manejar por unas horas.</p></div>
         <div class="step reveal"><h3>Tu plan</h3><p>Sales con un diagnóstico claro, tu tratamiento y el seguimiento que necesitas.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- AGENDA EN LÍNEA -->
+  <section class="agenda-sec" id="agenda" aria-labelledby="agenda-title">
+    <div class="wrap agenda">
+      <div class="section-head reveal">
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Agenda tu consulta</span>
+        <h2 id="agenda-title">Elige tu día <em>y tu hora.</em></h2>
+        <p>Selecciona un horario disponible y deja tus datos. Te confirmamos por WhatsApp.</p>
+        <div class="sched-box"><b>Horario de atención</b><span id="scheduleSummary">Lunes a viernes · 10:00 am a 8:00 pm</span></div>
+      </div>
+      <div class="booking reveal" aria-live="polite">
+        <div id="demoFlag"></div>
+        <p class="booking-title">Horarios disponibles</p>
+        <div class="date-strip" id="dateStrip" role="list" aria-label="Elige un día"></div>
+        <div id="slotArea"><p class="empty-note">Cargando horarios…</p></div>
+        <div id="formArea"></div>
       </div>
     </div>
   </section>
@@ -518,7 +612,7 @@
   <section id="contacto" aria-labelledby="visit-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow"><svg aria-hidden="true"><use href="#eyelet"/></svg>Agenda tu consulta</span>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Contacto</span>
         <h2 id="visit-title">Te esperamos en <em>Plaza La Cantera.</em></h2>
       </div>
       <div class="visit">
@@ -526,36 +620,15 @@
           <h3>Opal Eye Oftalmología</h3>
           <ul class="info">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><b>Dirección</b>Plaza La Cantera, Blvd. Juan Pablo II 1098, Local 12<br>Canteras de San Agustín, 20218 Aguascalientes, Ags.</div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horario</b><div class="hours"><span>Lunes a viernes</span><span>9:00 – 20:00</span><span>Sábado y domingo</span><span>Cerrado</span></div></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Horario</b><div class="hours"><span>Lunes a viernes</span><span>10:00 – 20:00</span><span>Sábado y domingo</span><span>Cerrado</span></div></div></li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><b>Teléfono y WhatsApp</b><a href="tel:+524499997719">449 999 7719</a></div></li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><b>Correo</b><a href="mailto:contacto@opaleyeoftalmo.com">contacto@opaleyeoftalmo.com</a></div></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><div><b>Correo</b><a href="mailto:opal.eye.oftalmo@gmail.com">opal.eye.oftalmo@gmail.com</a></div></li>
           </ul>
           <div class="hero-actions" style="margin-top:26px">
             <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Opal+Eye+Oftalmolog%C3%ADa&amp;query_place_id=ChIJfYib72rvKYQREqbpO5YC7KE" target="_blank" rel="noopener">Cómo llegar</a>
           </div>
         </div>
 
-        <div class="card reveal">
-          <h3>Escríbenos</h3>
-          <form class="wa" id="waForm">
-            <label>Nombre<input name="nombre" autocomplete="name" required></label>
-            <label>Motivo de consulta
-              <select name="motivo">
-                <option>Consulta oftalmológica integral</option>
-                <option>Estudios y diagnóstico</option>
-                <option>Valoración para cirugía</option>
-                <option>Tratamiento con láser</option>
-                <option>Otro</option>
-              </select>
-            </label>
-            <label>Mensaje (opcional)<textarea name="mensaje" placeholder="Cuéntanos qué síntomas tienes o qué día te acomoda"></textarea></label>
-            <button class="btn btn-primary" type="submit">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-              Enviar por WhatsApp
-            </button>
-            <p class="fine">Se abrirá WhatsApp con tu mensaje listo para enviar.</p>
-          </form>
-        </div>
 
         <div class="map reveal">
           <iframe title="Mapa: Opal Eye Oftalmología en Plaza La Cantera" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -571,7 +644,7 @@
       <svg class="big-mark" viewBox="0 0 164 87" aria-hidden="true"><use href="#mark"/></svg>
       <h2 id="cta-title">Mira tu mundo con <em class="opal-text">toda su luz.</em></h2>
       <div class="hero-actions">
-        <a class="btn btn-opal" href="https://wa.me/524499997719?text=Hola%2C%20quiero%20agendar%20una%20consulta%20en%20Opal%20Eye" target="_blank" rel="noopener">Agenda tu consulta</a>
+        <a class="btn btn-opal" href="#agenda">Agenda tu consulta</a>
         <a class="btn btn-line" href="tel:+524499997719">Llamar</a>
       </div>
     </div>
@@ -589,11 +662,11 @@
       </div>
       <div>
         <b style="color:#fff">Visítanos</b>
-        <p>Plaza La Cantera, Blvd. Juan Pablo II 1098, Local 12, Canteras de San Agustín, Aguascalientes<br>Lun a vie · 9:00 – 20:00</p>
+        <p>Plaza La Cantera, Blvd. Juan Pablo II 1098, Local 12, Canteras de San Agustín, Aguascalientes<br>Lun a vie · 10:00 – 20:00</p>
       </div>
       <div>
         <b style="color:#fff">Contacto</b>
-        <p><a href="tel:+524499997719">449 999 7719</a><br><a href="mailto:contacto@opaleyeoftalmo.com">contacto@opaleyeoftalmo.com</a></p>
+        <p><a href="tel:+524499997719">449 999 7719</a><br><a href="mailto:opal.eye.oftalmo@gmail.com">opal.eye.oftalmo@gmail.com</a></p>
         <div class="social">
           <a href="https://www.instagram.com/opal.eye.ofta/" target="_blank" rel="noopener" aria-label="Instagram de Opal Eye"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
           <a href="https://www.facebook.com/Opal.Eye.Ofta/" target="_blank" rel="noopener" aria-label="Facebook de Opal Eye"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8Z"/></svg></a>
@@ -651,14 +724,152 @@
     },{passive:true});
   }
 
-  // formulario → mensaje de WhatsApp prellenado
-  document.getElementById('waForm').addEventListener('submit',function(e){
+  // ---------- agenda en línea ----------
+  // Mismo sistema que la agenda del psicólogo: un Google Apps Script propio de Opal Eye
+  // (GET = disponibilidad, POST = reservar). Pega aquí la URL /exec de SU implementación.
+  // Mientras esté vacía, la agenda manda a WhatsApp. Para ver el diseño con datos de
+  // ejemplo, abre la página con ?demo al final de la URL.
+  var APPS_SCRIPT_URL = "";
+  var DEMO = /[?&]demo\b/.test(location.search) && !APPS_SCRIPT_URL;
+  var DAY_NAMES=["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"];
+  var MONTHS=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  var schedule=null, days=[], selectedDate=null, selectedSlot=null, preConvenio="";
+
+  function fmtTime12(t){ var p=t.split(":"), h=+p[0], ap=h>=12?"pm":"am", hh=h%12||12; return hh+":"+p[1]+" "+ap; }
+  function fmtDateLong(ds){ var d=new Date(ds+"T00:00:00"); return DAY_NAMES[d.getDay()]+" "+d.getDate()+" de "+MONTHS[d.getMonth()]; }
+  function escapeHtml(x){ return String(x).replace(/[&<>"']/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+  function waLink(text){ return "https://wa.me/"+WA+(text?"?text="+encodeURIComponent(text):""); }
+
+  function demoAvailability(){
+    var out=[], d=new Date(); d.setHours(0,0,0,0);
+    while(out.length<12){
+      d.setDate(d.getDate()+1);
+      var dow=d.getDay(); if(dow===0||dow===6) continue;
+      var ds=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+      var slots=["10:00","11:00","12:00","13:00","16:00","17:00","18:00","19:00"].filter(function(_,i){ return (i+out.length)%3!==0; });
+      out.push({date:ds,status:out.length===2?"full":"open",slots:out.length===2?[]:slots});
+    }
+    return Promise.resolve({ok:true,schedule:{lines:["Lunes a viernes · 10:00 am a 8:00 pm"]},days:out});
+  }
+  function fetchAvailability(){
+    var req = DEMO ? demoAvailability() : fetch(APPS_SCRIPT_URL).then(function(r){ return r.json(); });
+    return req.then(function(data){
+      if(!data||!data.ok) throw new Error("bad response");
+      schedule=data.schedule; days=data.days||[];
+      var lines=schedule&&Array.isArray(schedule.lines)?schedule.lines.filter(Boolean):[];
+      if(lines.length){
+        var el=document.getElementById("scheduleSummary"); el.textContent="";
+        lines.forEach(function(line,i){ if(i) el.appendChild(document.createElement("br")); el.appendChild(document.createTextNode(line)); });
+      }
+    });
+  }
+  function renderFallback(){
+    document.getElementById("dateStrip").innerHTML="";
+    document.getElementById("slotArea").innerHTML=
+      "<p class='empty-note'>"+(APPS_SCRIPT_URL?"No se pudo cargar la disponibilidad en este momento.":"La agenda en línea estará disponible muy pronto.")+
+      " Escríbenos por WhatsApp y te agendamos directo.</p>"+
+      "<p style='margin-top:18px'><a class='btn btn-primary' target='_blank' rel='noopener' href='"+waLink("Hola, me gustaría agendar una consulta en Opal Eye.")+"'>Agendar por WhatsApp</a></p>";
+  }
+  function loadAvailability(){
+    if(DEMO) document.getElementById("demoFlag").innerHTML="<span class='demo-flag'>Vista de ejemplo · horarios ficticios</span>";
+    if(!APPS_SCRIPT_URL && !DEMO){ renderFallback(); return; }
+    fetchAvailability().then(function(){ renderDateStrip(); renderSlots(); }).catch(renderFallback);
+  }
+  function renderDateStrip(){
+    var strip=document.getElementById("dateStrip"); strip.innerHTML="";
+    days.forEach(function(d){
+      var dt=new Date(d.date+"T00:00:00");
+      var chip=document.createElement("button");
+      chip.type="button";
+      chip.className="date-chip"+(selectedDate===d.date?" selected":"");
+      chip.setAttribute("role","listitem");
+      chip.disabled=d.status!=="open";
+      var label=d.status==="blocked"?"Cerrado":(d.status==="full"?"Lleno":MONTHS[dt.getMonth()].slice(0,3));
+      chip.innerHTML="<span class='dow'>"+DAY_NAMES[dt.getDay()]+"</span><span class='dd'>"+dt.getDate()+"</span><span class='mo'>"+label+"</span>";
+      chip.setAttribute("aria-label",fmtDateLong(d.date)+(chip.disabled?" ("+label+")":""));
+      chip.addEventListener("click",function(){
+        selectedDate=d.date; selectedSlot=null;
+        document.getElementById("formArea").innerHTML="";
+        renderDateStrip(); renderSlots();
+      });
+      strip.appendChild(chip);
+    });
+  }
+  function renderSlots(){
+    var area=document.getElementById("slotArea");
+    if(!selectedDate){ area.innerHTML="<p class='empty-note'>Elige un día para ver los horarios disponibles.</p>"; return; }
+    var day=days.filter(function(d){ return d.date===selectedDate; })[0];
+    var times=(day&&day.status==="open")?day.slots:[];
+    if(!times.length){ area.innerHTML="<p class='empty-note'>No quedan horarios el "+fmtDateLong(selectedDate)+". Elige otro día.</p>"; return; }
+    area.innerHTML="<div class='slot-grid'>"+times.map(function(t){
+      return "<button type='button' class='slot-btn"+(selectedSlot===t?" selected":"")+"' data-time='"+t+"'>"+fmtTime12(t)+"</button>";
+    }).join("")+"</div>";
+    area.querySelectorAll(".slot-btn").forEach(function(btn){
+      btn.addEventListener("click",function(){ selectedSlot=btn.getAttribute("data-time"); renderSlots(); renderForm(); });
+    });
+  }
+  function renderForm(){
+    var area=document.getElementById("formArea");
+    if(!selectedDate||!selectedSlot){ area.innerHTML=""; return; }
+    area.innerHTML=
+      "<form class='book-form' id='bookForm'>"+
+      "<p class='when'>"+fmtDateLong(selectedDate)+" · "+fmtTime12(selectedSlot)+"</p>"+
+      "<label>Nombre completo<input id='bfName' autocomplete='name' required></label>"+
+      "<label>WhatsApp (10 dígitos)<input id='bfPhone' type='tel' inputmode='numeric' pattern='[0-9]{10}' autocomplete='tel-national' required></label>"+
+      "<label>Motivo de consulta<select id='bfReason'>"+
+        "<option>Consulta oftalmológica integral</option><option>Revisión de seguimiento</option>"+
+        "<option>Valoración para cirugía</option><option>Tratamiento con láser</option>"+
+        "<option>Ojo rojo, ardor o irritación</option><option>Otro</option>"+
+      "</select></label>"+
+      "<label>¿Vienes por convenio?<select id='bfConv'><option value=''>No</option><option value='JATCO'>Sí, convenio JATCO</option></select></label>"+
+      "<input type='text' id='bfWebsite' name='website' tabindex='-1' autocomplete='off' class='hp' aria-hidden='true'>"+
+      "<div id='bfMsg'></div>"+
+      "<button type='submit' class='btn btn-primary'>Confirmar cita</button>"+
+      "</form>";
+    document.getElementById("bfConv").value=preConvenio;
+    document.getElementById("bookForm").addEventListener("submit",onSubmitBooking);
+  }
+  function showFormMsg(text,ok){ var el=document.getElementById("bfMsg"); if(el) el.innerHTML="<p class='form-msg "+(ok?"ok":"error")+"'>"+escapeHtml(text)+"</p>"; }
+  function onSubmitBooking(e){
     e.preventDefault();
-    var f=e.target;
-    var txt='Hola, soy '+f.nombre.value.trim()+'. Me gustaría agendar: '+f.motivo.value+'.';
-    if(f.mensaje.value.trim()) txt+=' '+f.mensaje.value.trim();
-    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(txt),'_blank','noopener');
+    var name=document.getElementById("bfName").value.trim();
+    var phone=document.getElementById("bfPhone").value.replace(/\D/g,"");
+    var conv=document.getElementById("bfConv").value;
+    var reason=document.getElementById("bfReason").value+(conv?" · Convenio "+conv:"");
+    var website=document.getElementById("bfWebsite").value;
+    if(!name||!/^[0-9]{10}$/.test(phone)){ showFormMsg("Revisa tu nombre y que el WhatsApp tenga 10 dígitos.",false); return; }
+    var btn=e.target.querySelector("button[type=submit]"), prev=btn.textContent;
+    btn.disabled=true; btn.textContent="Agendando…";
+    var send = DEMO ? Promise.resolve({ok:true}) :
+      fetch(APPS_SCRIPT_URL,{method:"POST",body:JSON.stringify({name:name,phone:phone,reason:reason,date:selectedDate,time:selectedSlot,website:website})}).then(function(r){ return r.json(); });
+    send.then(function(res){
+      if(res&&res.ok){ renderConfirmation(name,reason); return; }
+      if(res&&res.error==="slot_taken"){
+        showFormMsg(res.message||"Ese horario ya no está disponible. Elige otro.",false);
+        days=res.days||days; selectedSlot=null; renderDateStrip(); renderSlots();
+      } else showFormMsg((res&&res.message)||"No se pudo agendar. Intenta de nuevo.",false);
+      btn.disabled=false; btn.textContent=prev;
+    }).catch(function(){
+      showFormMsg("No se pudo agendar. Revisa tu conexión e intenta de nuevo.",false);
+      btn.disabled=false; btn.textContent=prev;
+    });
+  }
+  function renderConfirmation(name,reason){
+    var msg="Hola, soy "+name+". Acabo de agendar una consulta en Opal Eye el "+fmtDateLong(selectedDate)+" a las "+fmtTime12(selectedSlot)+". Motivo: "+reason+".";
+    document.getElementById("formArea").innerHTML=
+      "<div class='confirm-card'><h3>¡Tu cita quedó agendada!</h3><p>"+fmtDateLong(selectedDate)+" · "+fmtTime12(selectedSlot)+"</p>"+
+      "<a class='btn btn-primary' target='_blank' rel='noopener' href='"+waLink(msg)+"'>Confirmar por WhatsApp</a></div>";
+    document.getElementById("slotArea").innerHTML="<p class='empty-note'>Cita registrada para el "+fmtDateLong(selectedDate)+".</p>";
+    if(!DEMO) fetchAvailability().then(renderDateStrip).catch(function(){});
+  }
+  // "Agendar con convenio" deja preseleccionado el convenio en el formulario
+  document.querySelectorAll("[data-convenio]").forEach(function(a){
+    a.addEventListener("click",function(){ preConvenio=a.getAttribute("data-convenio"); var c=document.getElementById("bfConv"); if(c) c.value=preConvenio; });
   });
+  document.addEventListener("visibilitychange",function(){
+    if(document.visibilityState==="visible" && APPS_SCRIPT_URL) fetchAvailability().then(function(){ renderDateStrip(); renderSlots(); }).catch(function(){});
+  });
+  loadAvailability();
 
   // aparición suave de secciones
   var els=document.querySelectorAll('.reveal');

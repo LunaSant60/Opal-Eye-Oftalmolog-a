@@ -9,9 +9,9 @@
 | Certificaciones | Certificada por el Consejo Mexicano de Oftalmología; miembro de la Sociedad Mexicana de Oftalmología | Ficha de Google |
 | Cédulas | C.P. 11777757 (UAA) · C.E. 15127190 (UNAM) | Ficha de Google |
 | Dirección | Plaza La Cantera, Blvd. Juan Pablo II 1098, Local 12, Canteras de San Agustín, 20218 Aguascalientes, Ags. | Google Maps |
-| Horario | Lunes a viernes 9:00–20:00 · Sábado y domingo cerrado | Google Maps |
+| Horario | **Lunes a viernes 10:00–20:00** · Sábado y domingo cerrado | Cliente (Google Maps aún dice 9:00; conviene actualizarlo) |
 | Teléfono / WhatsApp | 449 999 7719 (+52 449 999 7719) | Google Maps y widget de WhatsApp de su sitio |
-| Correo | contacto@opaleyeoftalmo.com | opaleyeoftalmo.com/Contacto |
+| Correo | **opal.eye.oftalmo@gmail.com** | Cliente |
 | Calificación | **5.0 ★ con 13 reseñas** | Google Maps |
 | Distintivo | Negocio dirigido por mujeres | Google Maps |
 | Redes | Instagram [@opal.eye.ofta](https://www.instagram.com/opal.eye.ofta/) · Facebook [Opal.Eye.Ofta](https://www.facebook.com/Opal.Eye.Ofta/) | Su sitio |
@@ -19,8 +19,8 @@
 | Place ID de Google | ChIJfYib72rvKYQREqbpO5YC7KE | Google Maps |
 
 ### Servicios (los mismos de su sitio)
-1. **Consulta oftalmológica integral**: agudeza visual, refracción, presión intraocular y revisión detallada.
-2. **Estudios y diagnóstico especializado**: fondo de ojo y análisis de película lagrimal.
+1. **Consulta oftalmológica integral**: agudeza visual, presión intraocular, fondo de ojo, análisis de película lagrimal y revisión detallada. Refracción no se incluye (indicación del cliente).
+2. **Estudios y diagnóstico especializado**: valoraciones complementarias.
 3. **Cirugías oftalmológicas**: con seguimiento antes y después. Una reseña menciona una cirugía de cataratas.
 4. **Tratamientos con láser.**
 
@@ -60,9 +60,11 @@ Su logo ya es muy bueno: un ojo turquesa con una figura (¿caballito de mar o dr
 | `--teal-soft` | `#E4F2F1` | Fondos suaves |
 | Ópalo | `#8FD8D2` `#A9D3F0` `#C6C0EE` `#F5CDB8` `#C2EAD8` | El juego de color, solo como acento |
 
-### Tipografía
-- **Instrument Serif** para titulares: elegante, con cursivas.
-- **Manrope** para el texto.
+### Tipografía (archivos que mandó el cliente, en `fonts/`)
+- **Marlin**: títulos grandes en mayúsculas. Es la letra del logotipo, con la Λ.
+- **Asen Pro**: texto, subtítulos y citas (pesos 300, 400, 400 itálica y 600).
+- **Mosafin**: etiquetas, botones y números (pesos 500 y 600).
+Quedan disponibles más pesos en los archivos originales si hacen falta.
 
 ## 4. Pendiente (opcional, para la versión final)
 - [x] Foto de la Dra. Paola (`dra-paola.jpg`, en la sección "Quién te atiende")
@@ -73,3 +75,13 @@ Su logo ya es muy bueno: un ojo turquesa con una figura (¿caballito de mar o dr
 - [ ] Subespecialidad o cirugías que más hace (catarata, láser, etc.), para detallar servicios
 - [ ] Aseguradoras, formas de pago y facturación
 - [ ] Dominio: publicar en opaleyeoftalmo.com
+
+## 5. Cambios de la ronda 2 (indicaciones del cliente)
+- Horario 10:00–20:00 y correo opal.eye.oftalmo@gmail.com.
+- Titular nuevo: "Tu mirada, en las mejores manos." Alternativas en la lluvia de ideas del chat.
+- Se quitó el halo alrededor del ojo del hero, y los ojitos pequeños se cambiaron por puntos.
+- "Quién te atiende" pasó a ser **"Sobre mí"**, en primera persona.
+- Consulta integral sin refracción, con fondo de ojo y análisis de película lagrimal.
+- Sección **Convenios**: convenio con JATCO (botón que preselecciona el convenio en la agenda) y una oferta de convenios para otras empresas. **Pendiente:** definir los beneficios concretos del convenio para mencionarlos.
+- **Agenda en línea** con el mismo sistema del psicólogo (ver README). **Pendiente:** publicar el Apps Script propio de Opal Eye y pegar su URL.
+- Tipografías de la marca: Marlin, Asen Pro y Mosafin.
