@@ -59,7 +59,9 @@
   .wrap{width:min(1160px,100% - 32px);margin-inline:auto}
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   h1,h2,h3{margin:0}
-  h1,h2{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:.02em;text-transform:uppercase}
+  h2{font-family:var(--sans);font-weight:600;line-height:1.15;letter-spacing:-.01em}
+  /* Marlin (la letra del logo) solo en: título principal, "Ver bien se nota", "Tus ojos avisan" y la palabra "ópalo" */
+  h1,.marlin{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:.02em;text-transform:uppercase}
   h3{font-family:var(--sans);font-weight:600;line-height:1.2}
   h1 em,h2 em,h3 em{font-style:normal}
   h2 em{color:var(--teal-strong)}
@@ -132,7 +134,9 @@
 
   /* manifiesto + valores */
   .manifesto-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end}
-  .manifesto blockquote{margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;font-size:clamp(30px,3.8vw,50px);line-height:1.12}
+  .manifesto blockquote{margin:0;font-family:var(--sans);font-weight:600;letter-spacing:-.01em;font-size:clamp(32px,4vw,54px);line-height:1.12}
+  .manifesto blockquote em{font-style:normal}
+  .manifesto blockquote .marlin{font-size:1.04em;letter-spacing:.04em}
   .manifesto .intro{color:var(--ink-soft);font-size:18px;margin:0}
   .values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px}
   .value{border-top:2px solid var(--teal);padding-top:22px}
@@ -170,7 +174,7 @@
   /* reseñas */
   .reviews-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px}
   .score{display:flex;align-items:center;gap:18px}
-  .score b{font:400 80px/1 var(--display)}
+  .score b{font:600 76px/1 var(--label)}
   .score .stars{font-size:22px}
   .score small{display:block;color:rgba(238,245,245,.7);font-size:14px}
   .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -191,7 +195,7 @@
   .steps-sec{background:var(--teal-soft)}
   .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
   .step{counter-increment:s;background:var(--surface);border-radius:var(--radius);padding:30px 24px;border:1px solid var(--line)}
-  .step::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--display);font-size:44px;line-height:1;margin-bottom:16px;color:var(--teal)}
+  .step::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--label);font-weight:600;font-size:38px;line-height:1;margin-bottom:16px;color:var(--teal)}
   .step h3{font-size:20px;margin-bottom:8px}
   .step p{margin:0;font-size:15.5px;color:var(--ink-soft)}
 
@@ -225,7 +229,7 @@
   .deal-steps b{flex:none;min-width:24px;font-variant-numeric:tabular-nums;font:600 13px/1 var(--label);letter-spacing:.08em;color:var(--o-aqua)}
   .deal-rate{background:var(--navy-2);border-left:1px solid var(--line-night);padding:44px 36px;display:flex;flex-direction:column;justify-content:center;gap:10px}
   .rate-label{font:600 11.5px/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--o-aqua)}
-  .rate-num{font:400 76px/1 var(--display);letter-spacing:.02em;color:#fff}
+  .rate-num{font:600 68px/1 var(--label);letter-spacing:-.01em;color:#fff}
   .rate-num small{font:600 16px/1 var(--label);letter-spacing:.12em;color:rgba(238,245,245,.7);margin-left:8px}
   .rate-desc{font-size:15px;color:rgba(238,245,245,.72);margin:0 0 18px}
   .deal-rate .btn{width:100%}
@@ -416,7 +420,7 @@
   <section class="manifesto" aria-labelledby="mani-title">
     <div class="wrap">
       <div class="manifesto-grid">
-        <blockquote class="reveal" id="mani-title">Cada mirada es única, <em class="opal-text">como un ópalo.</em></blockquote>
+        <blockquote class="reveal" id="mani-title">Cada mirada es única, <em class="opal-text">como un <span class="marlin">ópalo</span>.</em></blockquote>
         <p class="intro reveal">En Opal Eye nos dedicamos a cuidar tu salud visual con un enfoque humano y profesional. Escuchamos cada síntoma, evaluamos a detalle y te explicamos cada proceso para que tomes decisiones informadas y seguras.</p>
       </div>
       <div class="values">
@@ -542,7 +546,7 @@
       <div class="reviews-top">
         <div class="section-head reveal" style="margin-bottom:0">
           <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Lo que dicen nuestros pacientes</span>
-          <h2 id="rev-title">Ver bien <em class="opal-text">se nota.</em></h2>
+          <h2 class="marlin" id="rev-title">Ver bien <em class="opal-text">se nota.</em></h2>
         </div>
         <div class="score reveal">
           <b>5.0</b>
@@ -571,7 +575,7 @@
     <div class="wrap when-grid">
       <div class="section-head reveal" style="margin-bottom:0">
         <span class="eyebrow"><span class="dot" aria-hidden="true"></span>¿Cuándo venir?</span>
-        <h2 id="when-title">Tus ojos avisan. <em>Escúchalos.</em></h2>
+        <h2 class="marlin" id="when-title">Tus ojos avisan. <em>Escúchalos.</em></h2>
         <p>Muchas enfermedades de los ojos no duelen al principio. Una revisión a tiempo hace toda la diferencia.</p>
         <div class="urgent">
           <strong>Si es urgente, no esperes.</strong>
@@ -612,7 +616,7 @@
     <div class="wrap agenda">
       <div class="section-head reveal">
         <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Agenda tu consulta</span>
-        <h2 id="agenda-title">Elige tu día <em>y tu hora.</em></h2>
+        <h2 id="agenda-title">Agenda <em>tu cita.</em></h2>
         <p>Selecciona un horario disponible y deja tus datos. Te confirmamos por WhatsApp.</p>
         <div class="sched-box"><b>Horario de atención</b><span id="scheduleSummary">Lunes a viernes · 10:00 am a 8:00 pm</span></div>
       </div>
